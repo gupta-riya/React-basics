@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+  <head>
+    <title>hello</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- need to import react plugins -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+  <body>
+
+    <div id="root"></div>
+    <script type = "text/babel">
+    
+    // component and not function
+    function Hello()
+    {
+        return(
+            // we can return only JSX code only
+            <h1>Hello</h1>
+        )
+    }
+    // we use reactdom to render on page , and it will call a component <Hello> and the conatiner where we want to display text
+    ReactDOM.render(<Hello></Hello>,document.getElementById('root'));
+    
+    </script>
+
+   </body>
+</html>
