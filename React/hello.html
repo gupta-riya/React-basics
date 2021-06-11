@@ -15,6 +15,7 @@
     <script type = "text/babel">
     
     // component and not function
+    // start name with capital letter
     function Hello()
     {
         return(
@@ -22,9 +23,38 @@
             <h1>Hello</h1>
         )
     }
+
+    // for multiple calling
+    function Hellos()
+    {
+      // we have to wrap calls becoz it needs to call Hello multiple times
+        return(
+
+          // if we do like this then it will create an extra div 
+          // <div>
+          // <Hello/>
+          // <Hello/>
+          // <Hello/>
+          // <Hello/>
+          // </div>
+
+          // so react provide fragment to wrap in react
+          <React.Fragment>
+            <Hello/>
+            <Hello/>
+            <Hello/>
+            <Hello/>
+          </React.Fragment>
+        )
+    }
+
+
     // we use reactdom to render on page , and it will call a component <Hello> and the conatiner where we want to display text
-    ReactDOM.render(<Hello></Hello>,document.getElementById('root'));
+    // ReactDOM.render(<Hello></Hello>,document.getElementById('root'));
     
+    // now pass Hellos 
+    ReactDOM.render(<Hellos></Hellos>,document.getElementById('root'));
+
     </script>
 
    </body>
