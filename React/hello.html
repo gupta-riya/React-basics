@@ -16,11 +16,27 @@
     
     // component and not function
     // start name with capital letter
-    function Hello()
+
+    // function Hello(props)
+    // {
+
+    //   // adding props arg is optional
+    //   // props is a keyword and it reamains empty if it doesnot have any value
+    //   console.log(props);
+    //     return(
+    //         // we can return only JSX code only
+    //         <h1>Hello {props.person}</h1>
+    //     )
+    // }
+
+
+    // can use destructuring also
+    function Hello({person = "Default", age = '0'})
     {
+
         return(
-            // we can return only JSX code only
-            <h1>Hello</h1>
+            
+            <h1>Hello {person} Age {age}</h1>
         )
     }
 
@@ -39,9 +55,10 @@
           // </div>
 
           // so react provide fragment to wrap in react
+          // can send arg value for props
           <React.Fragment>
-            <Hello/>
-            <Hello/>
+            <Hello person = 'Riya' age='21'/>
+            <Hello person = 'Krishna'/>
             <Hello/>
             <Hello/>
           </React.Fragment>
