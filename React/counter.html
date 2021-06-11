@@ -17,14 +17,35 @@
     // class class_name extends reactcomponent to get properties
     class Counter extends React.Component
     {
+
+        // for dynamic 
+        constructor()
+        {
+            // call parent class constructor 
+            super();
+            // after super we'll be able to access this 
+            this.state = {
+                count : 0
+            }
+        }
+
+        // dont use simple function else we have to use bind function
+        // instead use arrow function
+        increment = () =>{
+            // this will not work
+            // this.state.count = this.state.count+1;
+            this.setState({count : this.state.count+1});
+        
+        }
+
         render()
         {
             return(
                 // only JSX code
                 // <h1>Hello</h1>
                 <React.Fragment>
-                <h1>0</h1>
-                <button>+</button>
+                <h1>{this.state.count}</h1>
+                <button onClick = {this.increment}>+ </button>
                 </React.Fragment>
             )
         }
