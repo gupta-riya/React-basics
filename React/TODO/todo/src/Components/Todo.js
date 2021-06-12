@@ -29,7 +29,7 @@ export default class Todo extends Component{
     {
         // will return all task not equal to that id
         let nta = this.state.tasks.filter(task=>{
-            return task.id != id;
+            return task.id!==id;
         })
         this.setState({tasks:nta});
         
@@ -38,25 +38,57 @@ export default class Todo extends Component{
     render(){
         
         return(
-            <div>
+            <>
+                <InputComponent value={this.state.currTask} onChange={this.handleChange} onSubmit = {this.onSubmit}/>
+                <TaskListComponent tasks = {this.state.tasks} onDelete={this.onDelete}/>
+            </>
+        )
+    }
+}
 
-                <div className = 'input-container'>
-                    <input  type = "text"  value = {this.state.currTask} onChange={this.handleChange}></input>
-                    <button onClick = {this.onSubmit}>Add</button>
-                </div>
-                <div className = 'class-list'>
-                    <ul>
-                        {
-                            this.state.tasks.map(task=>(
-                                <li key = {task.id}>
-                                    <h1>{task.txt}</h1>
-                                    <button onClick = {()=>this.onDelete(task.id)}>Delete</button>
-                                </li>
-                            ))
-                        }
-                    </ul>
-                </div>
 
+// input component
+
+class InputComponent extends Component{
+
+    constructor(props)
+    {
+        super(props);
+    }
+    render()
+    {
+        return(
+            
+            <div className = 'input-container'>
+            <input  type = "text"  value = {this.props.value} onChange={this.props.onChange}></input>
+            <button onClick = {this.props.onSubmit}>Add</button>
+            </div>
+        )
+    }
+}
+
+class TaskListComponent extends Component{
+
+    constructor(props)
+    {
+        super(props);
+    }
+    render()
+    {
+        return(
+            
+            <div className = 'class-list'>
+                <ul>
+                    {
+                        this.props.tasks.map(task=>(
+                            <li key = {task.id}>
+                                <h1>{task.txt}</h1>
+                                <button onClick = {()=>this.props.onDelete(task.id)}>Delete</button>
+                                {/* or   <button onClick = {function(){this.onDelete(task.id)}.bind(this)}>Delete</button>*/}
+                            </li>
+                        ))
+                    }
+                </ul>
             </div>
         )
     }
