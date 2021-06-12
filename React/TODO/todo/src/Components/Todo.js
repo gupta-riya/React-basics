@@ -17,6 +17,11 @@ export default class Todo extends Component{
         this.setState({currTask:val})
     }
     
+    onSubmit = ()=>{
+        let newTaskArr = [...this.state.tasks,{id:this.state.tasks.length+1,txt:this.state.currTask}]
+        this.setState({tasks:newTaskArr,currTask:''});
+    
+    }
     
     render(){
         
@@ -25,15 +30,15 @@ export default class Todo extends Component{
 
                 <div className = 'input-container'>
                     <input  type = "text"  value = {this.state.currTask} onChange={this.handleChange}></input>
-                    <button>Add</button>
+                    <button onClick = {this.onSubmit}>Add</button>
                 </div>
                 <div className = 'class-list'>
                     <ul>
                         {
                             this.state.tasks.map(task=>(
-                                <li>
+                                <li key = {task.id}>
                                     <h1>{task.txt}</h1>
-                                    <button>Delete</button>
+                                    <button >Delete</button>
                                 </li>
                             ))
                         }
