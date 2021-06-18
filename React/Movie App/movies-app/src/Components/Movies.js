@@ -79,6 +79,7 @@ export default class Movies extends Component {
         }
 
 
+        // on state change render is called
         return (
             <div className = 'container'>
             <div className = 'row'>
@@ -93,8 +94,15 @@ export default class Movies extends Component {
         
                         <th scope="col">Title</th>
                         <th scope="col">Genre</th>
-                        <th scope="col">Stock</th>
-                        <th scope="col">Rate</th>
+                        <th scope="col">
+                            <i className = "fa fa-sort-asc" aria-hidden="true"></i>
+                            Stock</th>
+                            <i className = "fa fa-sort-desc" aria-hidden="true"></i>
+                        <th scope="col">
+                            <i className = "fa fa-sort-asc" aria-hidden="true"></i>
+                            Rate
+                            <i className = "fa fa-sort-desc" aria-hidden="true"></i>
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
