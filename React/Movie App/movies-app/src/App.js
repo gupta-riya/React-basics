@@ -1,10 +1,10 @@
-import logo from './logo.svg';
-import './App.css';
+
+import Movies from './Components/Movies';
 
 function App() {
   return (
     <>
-    <h1>Hello</h1>
+    <Movies/>
     </>
   );
 }
