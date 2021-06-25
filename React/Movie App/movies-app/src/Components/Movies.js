@@ -5,12 +5,15 @@ export default class Movies extends Component {
         super();
         this.state = {
             movies: getMovies(),
-            currSearchText: ''
+            currSearchText: '',
+            // for pagination
+            currPage:1
+            
         }
     }
     handleChange = (e) => {
         let val = e.target.value;
-        console.log(val);
+        // console.log(val);
         this.setState({
             currSearchText: val
         })
@@ -52,6 +55,8 @@ export default class Movies extends Component {
 
 
     sortByRatings = (e) =>{
+
+        // flaw in this as it will sort on the basis of complete movies not the part displaying on the screen
         let className = e.target.className;
         let sortedMovies = [];
         if(className==='fa fa-sort-asc')
@@ -72,12 +77,20 @@ export default class Movies extends Component {
         })
     }
 
+    // change page number
+    handlePagination = (pageNumber)=>{
+
+        this.setState({
+            currPage:pageNumber
+        })
+    }
 
 
 
     render() {
-        console.log('render');
-        let { movies, currSearchText } = this.state; //ES6 destructuring
+        // console.log('render');
+        let { movies, currSearchText,currPage } = this.state; //ES6 destructuring
+        let limit = 4;
         let filteredArr = [];
         if (currSearchText === '') {
             filteredArr = movies;
@@ -85,11 +98,19 @@ export default class Movies extends Component {
         else {
             filteredArr = movies.filter(function (movieObj) {
                 let title = movieObj.title.toLowerCase();
-                console.log(title);
+                // console.log(title);
                 return title.includes(currSearchText.toLowerCase());
             })
         }
-
+        let numberOfPages = Math.ceil(filteredArr.length/limit);
+        let pageNumberArr = [];
+        for(let i = 0 ; i < numberOfPages ; i++)
+        {
+            pageNumberArr.push(i+1);
+        }
+        let startIndex = (currPage-1) * limit;
+        let endIndex = startIndex + limit;      // it will automatically adjust itself for the left out elements
+        filteredArr = filteredArr.slice(startIndex,endIndex);
         return (
             //JSX
             <div className='container'>
@@ -106,14 +127,14 @@ export default class Movies extends Component {
                                     <th scope="col">Title</th>
                                     <th scope="col">Genre</th>
                                     <th scope="col">
-                                        <i onClick = {this.sortByStock} class="fa fa-sort-asc" aria-hidden="true"></i>
+                                        <i onClick = {this.sortByStock} className="fa fa-sort-asc" aria-hidden="true"></i>
                                         Stock
-                                        <i onClick = {this.sortByStock} class="fa fa-sort-desc" aria-hidden="true"></i>
+                                        <i onClick = {this.sortByStock} className="fa fa-sort-desc" aria-hidden="true"></i>
                                     </th>
                                     <th scope="col">
-                                        <i onClick = {this.sortByRatings} class="fa fa-sort-asc" aria-hidden="true"></i>
+                                        <i onClick = {this.sortByRatings} className="fa fa-sort-asc" aria-hidden="true"></i>
                                         Rate
-                                        <i onClick = {this.sortByRatings} class="fa fa-sort-desc" aria-hidden="true"></i>
+                                        <i onClick = {this.sortByRatings} className="fa fa-sort-desc" aria-hidden="true"></i>
                                     </th>
                                     <th></th>
                                 </tr>
@@ -137,9 +158,26 @@ export default class Movies extends Component {
                                 }
                             </tbody>
                         </table>
+
+                        {/* pagination */}
+                        <nav aria-label="...">
+                            <ul className="pagination">
+                            {
+                                pageNumberArr.map((pageNumber)=>{
+                                    
+                                    let classStyle = pageNumber===currPage?'page-item active':'page-item';
+                                    return(
+                                        <li key = {pageNumber} onClick = {() => this.handlePagination(pageNumber)} className= {classStyle}><span className="page-link">{pageNumber}</span></li>
+                                    )
+                                })
+                            }
+                        </ul>
+                        </nav>  
                     </div>
                 </div>
             </div>
         )
     }
 }
+
+
