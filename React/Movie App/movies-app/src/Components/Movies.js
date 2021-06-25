@@ -24,6 +24,57 @@ export default class Movies extends Component {
             movies: arr
         });
     }
+
+
+    // sorting applied
+    sortByStock = (e) =>{
+
+        let className = e.target.className;
+        let sortedMovies = [];
+        if(className==='fa fa-sort-asc')
+        {
+            sortedMovies = this.state.movies.sort(function(movieObj1,movieObj2){
+                return movieObj2.numberInStock - movieObj1.numberInStock;
+            })
+        }
+        else
+        {
+            sortedMovies = this.state.movies.sort(function(movieObj1,movieObj2){
+                return movieObj1.numberInStock - movieObj2.numberInStock;
+            })
+        }
+
+        this.setState({
+            movies:sortedMovies
+        })
+    }
+
+
+
+    sortByRatings = (e) =>{
+        let className = e.target.className;
+        let sortedMovies = [];
+        if(className==='fa fa-sort-asc')
+        {
+            sortedMovies = this.state.movies.sort(function(movieObj1,movieObj2){
+                return movieObj2.dailyRentalRate - movieObj1.dailyRentalRate;
+            })
+        }
+        else
+        {
+            sortedMovies = this.state.movies.sort(function(movieObj1,movieObj2){
+                return movieObj1.dailyRentalRate - movieObj2.dailyRentalRate;
+            })
+        }
+
+        this.setState({
+            movies:sortedMovies
+        })
+    }
+
+
+
+
     render() {
         console.log('render');
         let { movies, currSearchText } = this.state; //ES6 destructuring
@@ -55,14 +106,14 @@ export default class Movies extends Component {
                                     <th scope="col">Title</th>
                                     <th scope="col">Genre</th>
                                     <th scope="col">
-                                        <i class="fa fa-sort-asc" aria-hidden="true"></i>
+                                        <i onClick = {this.sortByStock} class="fa fa-sort-asc" aria-hidden="true"></i>
                                         Stock
-                                        <i class="fa fa-sort-desc" aria-hidden="true"></i>
+                                        <i onClick = {this.sortByStock} class="fa fa-sort-desc" aria-hidden="true"></i>
                                     </th>
                                     <th scope="col">
-                                        <i class="fa fa-sort-asc" aria-hidden="true"></i>
+                                        <i onClick = {this.sortByRatings} class="fa fa-sort-asc" aria-hidden="true"></i>
                                         Rate
-                                        <i class="fa fa-sort-desc" aria-hidden="true"></i>
+                                        <i onClick = {this.sortByRatings} class="fa fa-sort-desc" aria-hidden="true"></i>
                                     </th>
                                     <th></th>
                                 </tr>
