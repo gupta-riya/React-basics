@@ -1,0 +1,19 @@
+
+.nav-bar{
+    display: flex;
+    justify-content:space-evenly;
+    background-color: rgb(185, 110, 110);
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.nav-list{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 50%;
+}
+
+.nav-list li{
+     list-style : none;
+}

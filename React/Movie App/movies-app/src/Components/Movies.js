@@ -9,16 +9,22 @@ export default class Movies extends Component {
             movies:[],
             currSearchText: '',
             // for pagination
-            currPage:1
+            currPage:1,
+            //setting default genres
+            genres:[{_id:'abcd',name:'All Genres'}],
+            currGenres : 'All Genres'
             
         }
     }
 
     async componentDidMount(){
         let res = await axios.get('https://backend-react-movie.herokuapp.com/movies');
+        let genresRes = await axios.get('https://backend-react-movie.herokuapp.com/genres');
         console.log(res);
         this.setState({
-            movies:res.data.movies
+            movies:res.data.movies,
+            // adding network data to existing genres
+            genres:[...this.state.genres,...genresRes.data.genres]
         })
     }
 
@@ -98,11 +104,18 @@ export default class Movies extends Component {
         })
     }
 
+    // change genre
+    changeGenre = (genreName) =>{
+        this.setState({
+            currGenres:genreName
+        })
+    }
+
 
 
     render() {
         // console.log('render');
-        let { movies, currSearchText,currPage } = this.state; //ES6 destructuring
+        let { movies, currSearchText,currPage,genres,currGenres } = this.state; //ES6 destructuring
         let limit = 4;
         let filteredArr = [];
         if (currSearchText === '') {
@@ -115,6 +128,14 @@ export default class Movies extends Component {
                 return title.includes(currSearchText.toLowerCase());
             })
         }
+
+        if(currGenres!=='All Genres')
+        {
+            filteredArr = filteredArr.filter(function(movieObj){
+                return movieObj.genre.name === currGenres
+            })
+        }
+
         let numberOfPages = Math.ceil(filteredArr.length/limit);
         let pageNumberArr = [];
         for(let i = 0 ; i < numberOfPages ; i++)
@@ -127,10 +148,27 @@ export default class Movies extends Component {
         
         return (
             //JSX
+            // wrap it as we are using jsx with html and it can retun only one block
+            <>
+            { 
+            this.state.movies.length===0?<div className="spinner-border" role="status">
+                <span className="sr-only">Loading...</span>
+            </div>:
+
             <div className='container'>
                 <div className='row'>
                     <div className='col-3'>
-                        Hello
+                        <ul className="list-group">
+                          {
+                             genres.map((genre)=>(
+
+                                  <li key={genre._id} onClick = {() => this.changeGenre(genre.name)} className='list-group-item'>
+                                      {genre.name}
+                                  </li>  
+                                ))
+                            }
+                        </ul>
+                        <h5>Current Genre: {currGenres}</h5>
                     </div>
                     <div className='col-9'>
                         <input type='search' value={this.state.currSearchText} onChange={this.handleChange} ></input>
@@ -190,6 +228,8 @@ export default class Movies extends Component {
                     </div>
                 </div>
             </div>
+            }
+            </>
         )
     }
 }
