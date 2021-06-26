@@ -1,16 +1,29 @@
 import React, { Component } from 'react'
-import { getMovies } from './getMovies';
+// import { getMovies } from './getMovies';
+import axios from 'axios';
 export default class Movies extends Component {
     constructor() {
         super();
         this.state = {
-            movies: getMovies(),
+            // movies: getMovies(),
+            movies:[],
             currSearchText: '',
             // for pagination
             currPage:1
             
         }
     }
+
+    async componentDidMount(){
+        let res = await axios.get('https://backend-react-movie.herokuapp.com/movies');
+        console.log(res);
+        this.setState({
+            movies:res.data.movies
+        })
+    }
+
+
+
     handleChange = (e) => {
         let val = e.target.value;
         // console.log(val);
@@ -111,6 +124,7 @@ export default class Movies extends Component {
         let startIndex = (currPage-1) * limit;
         let endIndex = startIndex + limit;      // it will automatically adjust itself for the left out elements
         filteredArr = filteredArr.slice(startIndex,endIndex);
+        
         return (
             //JSX
             <div className='container'>
