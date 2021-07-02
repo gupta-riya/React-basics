@@ -1,4 +1,5 @@
-import Todo from './Components/Todo';
+// import Todo from './Components/Todo';
+import Counter from './Components/Counter';
 
 
 function App() {
@@ -6,7 +7,8 @@ function App() {
 
     //  <> is acting as a wrapper
     <>
-    <Todo/>
+    {/* <Todo/> */}
+    <Counter/>
     </>
   );
 }
