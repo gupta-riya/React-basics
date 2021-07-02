@@ -18,8 +18,14 @@ function App() {
 
         <Route path = '/' exact component={Home}/>
         <Route path = '/movies' component={Movies}/>
-        <Route path = '/about' component={About}/>
+        {/* this will pass props and not our parameters */}
+        {/* <Route path = '/about' component={About} isAuth = {true} /> */}
     
+        {/* use render to pass props + user parameter both together after destructuring */}
+        <Route path= '/about' render={(props)=>(
+          <About {...props} isAuth = {true}/>
+        )}/>
+      
       </Switch>
     </Router>
   );

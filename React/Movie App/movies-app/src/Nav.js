@@ -5,9 +5,9 @@ import {Link} from 'react-router-dom';
 // we use Link tag instead of a href tag becoz of router
 function Nav() {
     return (
-        <nav class = "nav-bar">
+        <nav className = "nav-bar">
             <h1>Logo</h1>
-            <ul class="nav-list">
+            <ul className ="nav-list">
                 <Link to ='/'>
                 <li>Home</li>
                 </Link>
