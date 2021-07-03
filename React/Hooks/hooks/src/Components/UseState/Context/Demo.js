@@ -3,8 +3,10 @@ import MyContext from './Context';
 import DemoChilds from './DemoChilds';
 function Demo() {
 
-    const val = useContext(MyContext);
-    console.log(val);
+    console.log('Demo Render');
+    // if we comment below two lines then demo will not render unnecesaarily as we are using memo
+    // const val = useContext(MyContext);
+    // console.log(val);
     return (
         <div>
             <DemoChilds/>
@@ -12,4 +14,4 @@ function Demo() {
     )
 }
 
-export default Demo
+export default React.memo(Demo)

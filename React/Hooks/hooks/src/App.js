@@ -6,7 +6,7 @@ import './App.css';
 // import Ue3 from './Components/UseState/Ue3';
 // import CleanUp from './Components/UseState/CleanUp';
 // import UseEffectWidthCleanup from './Components/UseState/UseEffectWidthCleanup';
-import Demo from './Components/UseState/Context/Demo';
+import Main from './Components/UseState/Context/Main';
 
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
    {/* <Infinite/> */}
    {/* <Ue3/> */}
    {/* <UseEffectWidthCleanup/> */}
-   <Demo/>
+   <Main/>
    </>
   );
 }
