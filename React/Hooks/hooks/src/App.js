@@ -4,8 +4,9 @@ import './App.css';
 
 // import Ue2 from './Components/UseState/Ue2';
 // import Infinite from './Components/UseState/Infinite';
-import Ue3 from './Components/UseState/Ue3';
-
+// import Ue3 from './Components/UseState/Ue3';
+// import CleanUp from './Components/UseState/CleanUp';
+import UseEffectWidthCleanup from './Components/UseState/UseEffectWidthCleanup';
 function App() {
   return (
    <>
@@ -13,7 +14,8 @@ function App() {
    {/* <Ue1/> */}
    {/* <Ue2/> */}
    {/* <Infinite/> */}
-   <Ue3/>
+   {/* <Ue3/> */}
+   <UseEffectWidthCleanup/>
    </>
   );
 }
