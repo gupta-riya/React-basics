@@ -1,13 +1,12 @@
 import './App.css';
-// import Us from './Components/UseState/Us';
-// import Ue1 from './Components/UseState/Ue1';
-// import Ue2 from './Components/UseState/Ue2';
-// import Infinite from './Components/UseState/Infinite';
-// import Ue3 from './Components/UseState/Ue3';
-// import CleanUp from './Components/UseState/CleanUp';
-// import UseEffectWidthCleanup from './Components/UseState/UseEffectWidthCleanup';
-import Main from './Components/UseState/Context/Main';
-
+// import Us from './UseEffect/Us';
+// import Ue1 from './UseEffect/Ue1';
+// import Ue2 from './UseEffect/Ue2';
+// import Infinite from './UseEffect/Infinite';
+// import Ue3 from './UseEffect/Ue3';
+// import UseEffectWidthCleanup from './CleanUP/UseEffectWidthCleanup';
+// import Main from './Context/Main';
+import Central from './Context2/Central'
 
 function App() {
   return (
@@ -18,7 +17,8 @@ function App() {
    {/* <Infinite/> */}
    {/* <Ue3/> */}
    {/* <UseEffectWidthCleanup/> */}
-   <Main/>
+   {/* <Main/> */}
+   <Central/>
    </>
   );
 }
