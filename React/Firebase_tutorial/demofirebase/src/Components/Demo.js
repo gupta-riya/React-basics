@@ -36,12 +36,22 @@ function Demo()
     }
     const handleSignOut = async ()=>{
 
-        let res = await auth.signOut();
-        setUser(null);
-        // setEmail('');
-        // setPassword('');
+        try{
+          
+            setLoading(true);
+            let res = await auth.signOut();
+            setUser(null);
+            setLoading(false);
+        }
+        catch(e){
+            setError(e.message);
+            setTimeout(()=> {
+                setError('')
+            },2000);
 
-
+            setLoading(false);
+        }
+       
     }
     return(
            <>
