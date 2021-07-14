@@ -1,6 +1,6 @@
 import React,{useEffect,useState,useContext} from 'react'
 import {AuthContext} from '../Context/AuthProvider';
-import { storage } from '../firebase';
+import { storage,database } from '../firebase';
 function Signup() {
 
     const [email,setEmail] = useState('');
@@ -13,6 +13,8 @@ function Signup() {
     // console.log(signup);
     const handleSignup = async (e) =>{
         e.preventDefault();
+        
+    try{
         setLoading(true);
         let res = await signup(email,password);
         let uid = res.user.uid ;
@@ -44,13 +46,36 @@ function Signup() {
         // promise return function that downloads url of the image
         async function fn3()
         {
+
+            // Add a new document in collection "cities" with id "LA"
+            // db.collection("cities").doc("LA").set({
+            //     name: "Los Angeles",
+            //     state: "CA",
+            //     country: "USA"
+            // })
             let downloadUrl = await uploadTaskListener.snapshot.ref.getDownloadURL();
-            console.log(downloadUrl);
+            // console.log(downloadUrl);
+           await database.users.doc(uid).set({
+                email:email,
+                userId:uid,
+                username:name,
+                createdAt:database.getCurrentTimeStamp(),
+                profileUrl: downloadUrl,
+                postIds:[]
+            })
+            
         }
-
-
-
         setLoading(false);
+        console.log('User has signed Up');
+        
+    }
+    catch(err){
+        setError(error);
+        setTimeout(()=>
+        setError(''),2000);
+        setLoading(false);
+    }
+       
 
     }
 
