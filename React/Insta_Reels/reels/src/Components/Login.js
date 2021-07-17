@@ -21,6 +21,8 @@ function Login() {
           setError("Failed to log in")
           setTimeout(()=>setError(''),2000)
           setLoading(false)
+          setPassword('');
+          setEmail('');
         }
       }
       useEffect(()=>{

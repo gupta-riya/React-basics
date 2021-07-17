@@ -1,4 +1,5 @@
 import React,{useEffect,useState,useContext} from 'react'
+import { useHistory } from 'react-router-dom';
 import {AuthContext} from '../Context/AuthProvider';
 import { storage,database } from '../firebase';
 function Signup() {
@@ -8,8 +9,9 @@ function Signup() {
     const [name,setName] = useState('');
     const [error,setError] = useState('');
     const [loading,setLoading] = useState(false);
-    const {signup} = useContext(AuthContext);
+    const {signup,currentUser} = useContext(AuthContext);
     const [file,setFile] = useState(null);
+    const history = useHistory();
     // console.log(signup);
     const handleSignup = async (e) =>{
         e.preventDefault();
@@ -66,7 +68,11 @@ function Signup() {
 
             setLoading(false);
             console.log('User has signed Up');
-            
+            history.push('/');
+            setEmail('');
+            setPassword('');
+            setName('');
+            setFile(null);
         }
         
         
@@ -92,6 +98,13 @@ function Signup() {
         }
 
    }
+
+   useEffect(()=>{
+       if(currentUser)
+       {
+           history.push('/')
+       }
+   },[])
 
     return (
         <div>
