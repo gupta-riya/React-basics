@@ -3,7 +3,7 @@ import vid1 from './Videos/dance.mp4';
 import vid2 from './Videos/water.mp4';
 import vid3 from './Videos/sunset.mp4';
 import vid4 from './Videos/snow.mp4';
-import Video from './Video';
+import Video from './VideoIO';
 
 function Ioa() {
 

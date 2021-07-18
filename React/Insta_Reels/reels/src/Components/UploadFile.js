@@ -59,7 +59,7 @@ function UploadFile(props) {
         {
             setError(error);
             setTimeout(()=>{
-                setError('')
+                setError(null)
             },2000);
             setLoading(false);
         }
@@ -90,14 +90,14 @@ function UploadFile(props) {
                 
                     //3. update postId in user database in the file of current user
                     let res = await database.users.doc(props.userData.userId).update({
-                        postIds : [...props.userData.postIds,docRef.id]
+                        postIds : [...props.userData.postIds,postId]
                     })
                 }).then(()=>{
                     setLoading(false)
                 }).catch(e=>{
                     setError(e);
                     setTimeout(()=>{
-                        setError('')
+                        setError(null)
                     },2000);
                     setLoading(false);
                 })

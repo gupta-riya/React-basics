@@ -1,6 +1,6 @@
 import React from 'react'
-import './Video.css'
-function Video(props) {
+
+function VideoIO(props) {
 
     const handleMute = (e) =>{
         e.preventDefault();
@@ -17,4 +17,5 @@ function Video(props) {
     )
 }
 
-export default Video
+
+export default VideoIO
