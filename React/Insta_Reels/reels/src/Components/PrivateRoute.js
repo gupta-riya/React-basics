@@ -1,6 +1,6 @@
 import React,{useContext} from 'react'
 // to redirect if login failed
-import { Route,Redirect } from 'react-router';
+import { Route,Redirect } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthProvider'
 // feed wala component me aaya or baaki rest me
 function PrivateRoute({component:Component,...rest}) {
