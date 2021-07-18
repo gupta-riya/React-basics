@@ -6,7 +6,7 @@ import { AuthContext } from '../Context/AuthProvider'
 function PrivateRoute({component:Component,...rest}) {
     
     const {currentUser} = useContext(AuthContext);
-    console.log(currentUser);
+    // console.log(currentUser);
     return (
         // if currentUser is not null that is valid then pass Component arg i.e. feed
         <Route {...rest} render={props=>{

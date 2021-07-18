@@ -75,13 +75,20 @@ function Posts(userData = null){
             // but will pause if its not under the view port
             let ele = element.target.childNodes[0];
             ele.play().then(()=>{
+                
                 if(!ele.paused && !element.isIntersecting)
+                {
+                   
                     ele.pause();
+                }
+                    
             })
         });
     }
-
-    const observer = new IntersectionObserver(callback,{threshold:0.85});
+    const observer = new IntersectionObserver(callback,{
+        thershold:0.85
+    })
+    
     useEffect(()=>{
         let postArr = [];
         // if anything changes in posts database
