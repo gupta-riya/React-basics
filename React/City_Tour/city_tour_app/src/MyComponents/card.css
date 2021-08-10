@@ -1,0 +1,101 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+   body {
+    /* background: #fff; */
+    color: #222;
+    font-family: "Open Sans", sans-serif;
+  }
+.tour {
+    background-color:rgb(214, 214, 205);
+    margin: 2rem 1rem;
+    width:20%;
+    border-radius: 10px;
+    /* min-height:360px; */
+    
+  }
+
+  .tour img{
+    width: 100%;
+    /* display: block; */
+    min-height: 13rem;
+    max-height: 13rem;
+  }
+
+  
+  
+  .img-container {
+    position: relative;
+  }
+  .close-btn {
+    position: absolute;
+    /* display: block; */
+    top: 5%;
+    right: 5%;
+    color:yellowgreen;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: all 0.3s linear;
+    opacity: 0;
+  }
+  .img-container:hover .close-btn {
+    opacity: 1;
+  }
+  .tour-info {
+    padding: 1rem 0.5rem;
+  
+    
+  }
+
+  .tour-info h3 {
+    text-transform: uppercase;
+    color: yellowgreen;
+  }
+  .tour-info h4 {
+    text-transform: capitalize;
+    color: black;
+    margin: 0.2rem 0 0.6rem 0;
+    font-size: 1.3rem;
+  }
+  .tour-info h5 {
+    text-transform: capitalize;
+    
+  }
+
+  .tour-info h5 span {
+    color: yellowgreen;
+    margin: 0.5rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+
+  
+
+  /* @media screen and (max-width: 1024px) {
+    .tour {
+      width: 25vw;
+    }
+  } */
+
+  @media screen and (max-width: 1400px) {
+    .tour {
+      width: 25vw;
+    }
+  }
+
+  @media screen and (max-width: 1010px) {
+    .tour {
+      width: 40vw;
+    }
+  }
+
+  @media screen and (max-width: 612px) {
+    .tour {
+      /* margin-left: 2rem;   */
+      width: 60vw;
+    }
+  }
