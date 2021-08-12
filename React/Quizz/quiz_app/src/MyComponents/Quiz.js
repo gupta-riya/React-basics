@@ -1,24 +1,19 @@
-import React,{Component,useState} from 'react'
+import React,{Component} from 'react'
 import {quizData} from './quizData'
 import QuizComp from './QuizComp'
 import './quiz.css';
-// import {Button} from 'react-bootstrap'
 import DisplayScore from './DisplayScore'
 
 export default class Quiz extends Component {
 
-  
-
-//   showScore = () => {
-
-//     }
 
     
     state = {
 
         arr : Array(quizData.length).fill(0),
         score : 0,
-        showScore: false
+        showScore: false,
+        currPage : 1
 
     }
 
@@ -30,7 +25,7 @@ export default class Quiz extends Component {
        if(answer === correct)
        {
           
-           if(this.state.arr[qid-1] == 0)
+           if(this.state.arr[qid-1] === 0)
            {
                let temp = [...this.state.arr];
                temp[qid-1] = 1;
@@ -43,7 +38,7 @@ export default class Quiz extends Component {
        }
        else
        {
-           if(this.state.arr[qid-1] == 1)
+           if(this.state.arr[qid-1] === 1)
            {
                 let temp = [...this.state.arr];
                 temp[qid-1] = 0;
@@ -68,9 +63,22 @@ export default class Quiz extends Component {
 
    }
 
+   nextPage = () => {
+       this.setState({
+           currPage : this.state.currPage + 1
+       })
+   }
+
 
     render()
     {
+
+        let limit = 3;
+        let startIndex =  (this.state.currPage-1)*limit;
+        let endIndex = startIndex + limit ;
+        let totalPages = this.state.arr.length/limit;
+        const currData = quizData.slice(startIndex,endIndex);
+        
         return (
         
            <>
@@ -79,7 +87,7 @@ export default class Quiz extends Component {
                    {
                    
                         this.state.showScore === false && 
-                            (quizData.map((quiz) => (
+                            (currData.map((quiz) => (
                             <QuizComp 
                                 key={quiz.qid} 
                                 data = {quiz} 
@@ -97,8 +105,12 @@ export default class Quiz extends Component {
             </div>
 
             <div>
+
                      {
-                         this.state.showScore===false ? <button className="submit-btn" onClick = {this.dispScore} >Submit</button>: null
+                         (this.state.currPage!==totalPages) && <button className="submit-btn" onClick = {this.nextPage} >Next</button>
+                     }
+                     {
+                         (this.state.currPage===totalPages && this.state.showScore === false ) ? <button className="submit-btn" onClick = {this.dispScore} >Submit</button>: null
                      }
             </div>
                 

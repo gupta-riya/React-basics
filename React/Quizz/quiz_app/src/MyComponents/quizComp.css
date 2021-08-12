@@ -1,7 +1,7 @@
 
 body{
 
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(217, 219, 219);
 
 
 }
@@ -12,10 +12,11 @@ body{
 
     width : 80vw;
     padding: 1rem 2rem;
-    border: 2px solid rgb(168, 161, 161);
+    border: 3px solid rgb(252, 221, 221);
     margin : 2rem 0;
     margin-left: 10vw;
-    border-radius: 10px;
+    border-radius: 15px;
+    background-color: whitesmoke;
 }
 
 .question

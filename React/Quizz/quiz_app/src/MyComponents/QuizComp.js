@@ -1,5 +1,5 @@
 
-import React,{useState} from 'react'
+import React from 'react'
 
 import './quizComp.css'
 
@@ -7,8 +7,6 @@ const QuizComp = (props) =>
 {
   
         const data = props.data;
-        const [answer,setAnswer] = useState(0);
-
         const handleSelected = (e) => {
 
                        
@@ -19,7 +17,7 @@ const QuizComp = (props) =>
                 arr[i].children[0].classList.remove("active");
             }
             
-            arr[e.target.getAttribute("id")-1].children[1].classList.add("active");
+            arr[e.target.getAttribute("id")-1].children[0].classList.add("active");
            
             
 
@@ -34,10 +32,10 @@ const QuizComp = (props) =>
                         data.options.map((opt) => {
                             return (
                                 <div className = "option-container">
-                                    {/* <span>{opt.oid + '. '}</span> */}
+                                    
                                     <button id = {opt.oid} className="opt-button" 
                                         onClick = {(e)=>{
-                                                        setAnswer(opt.oid);
+                                                        
                                                         handleSelected(e);                                                        
                                                         props.selected(opt.oid);
                                                    }}>
