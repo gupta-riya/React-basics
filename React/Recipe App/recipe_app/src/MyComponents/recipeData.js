@@ -3,7 +3,7 @@ export const recipeData = [
 
 {
     name:"PALAK PANEER",
-    img:"./palakPaneer.jpg",
+    img:"./Images/palakPaneer.jpg",
     ingredients:[
         "500 gms spinach, pureed",
         "15-16 Paneer cubes",
@@ -36,7 +36,7 @@ export const recipeData = [
 },
 {
     name:"PANEER TIKKA TOAST",
-    img:"./paneerTikka.jpg",
+    img:"./Images/paneerTikka.jpg",
     ingredients:[
         "1/2 Cup Paneer",
         "3 Tbsp Thick curd",
@@ -58,7 +58,7 @@ export const recipeData = [
 },
 {
     name:"PANEER CORN SANDWICH",
-    img:"./paneerSandwich.jpg",
+    img:"./Images/paneerSandwich.jpg",
     ingredients:[
         "100 gms Grated paneer",
         "50 gram Corns",
@@ -81,7 +81,7 @@ export const recipeData = [
 },
 {
     name:"PINK SAUCE PASTA",
-    img:"./pinkPasta.jpg",
+    img:"./Images/pinkPasta.jpg",
     ingredients:[
         "500 gms penne pasta",
         "2 tbsp olive oil",
@@ -114,7 +114,7 @@ export const recipeData = [
 },
 {
     name:"IDLI PASTA",
-    img:"./idliPasta.jpg",
+    img:"./Images/idliPasta.jpg",
     ingredients:[
         "12 Idlis",
         "1 cup onion, finely chopped",
@@ -147,7 +147,7 @@ export const recipeData = [
 },
 {
     name:"CHIILI POTATO",
-    img:"./chilliPotato.jpg",
+    img:"./Images/chillyPotato.jpg",
     ingredients:[
         "2 Potatoes (sliced)",
         "3-4 tbsp Cornflour or maida",
@@ -175,7 +175,7 @@ export const recipeData = [
 },
 {
     name:"POTATO CURRY",
-    img:"./potatoCurry.jpg",
+    img:"./Images/potatoCurry.jpg",
     ingredients:[
         "1 Chopped onion",
         "2 Chopped potato",
