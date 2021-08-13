@@ -1,13 +1,15 @@
-import React from 'react'
+import React,{Components} from 'react'
 import './foodChart.css'
 
-function FoodChart() {
-    return (
 
-        <div>
-            <h1>Main page</h1>
-        </div>
-    )
+export default class FoodChart extends Components
+{
+    render()
+    {
+        return()
+        {
+            <>
+            </>
+        }
+    }
 }
-
-export default FoodChart
