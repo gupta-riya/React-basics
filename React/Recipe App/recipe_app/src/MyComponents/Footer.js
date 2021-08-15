@@ -6,8 +6,7 @@ function Footer() {
 
         footer_container : {
 
-            // position:'relative',
-            // marginBottom : '0px',
+           
             width:'100%',
             marginTop: "calc(100vh - 300px)",
             height:"100px",
