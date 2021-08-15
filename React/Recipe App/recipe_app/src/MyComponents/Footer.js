@@ -6,9 +6,11 @@ function Footer() {
 
         footer_container : {
 
-            marginBottom : '0px',
+            // position:'relative',
+            // marginBottom : '0px',
             width:'100%',
-            height:'10vh',
+            marginTop: "calc(100vh - 300px)",
+            height:"100px",
             backgroundColor:'black',
             textAlign:'center',
             fontSize:'20px',
@@ -17,7 +19,7 @@ function Footer() {
         },
         footer_text:{
             color:'white',
-            paddingTop: '1vh'
+            paddingTop:'5vh'
             
         }
 

@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   
   title: {
     flexGrow: 1,
-    display: 'none',
+    display: 'block',
     [theme.breakpoints.up('sm')]: {
       display: 'block',
     },
@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: alpha(theme.palette.common.white, 0.50),
     },
     marginLeft: 0,
-    width: '100%',
+    width: '30%',
     [theme.breakpoints.up('sm')]: {
       marginLeft: theme.spacing(1),
       width: 'auto',
@@ -77,10 +77,11 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-export default function Header() {
+export default function Header(props) {
   const classes = useStyles();
+ 
 
-  return (
+    return (
     <div className={classes.root}>
       <AppBar position="sticky" className = {classes.bar}>
         <Toolbar>
@@ -99,6 +100,8 @@ export default function Header() {
                 input: classes.inputInput,
               }}
               inputProps={{ 'aria-label': 'search' }}
+              
+              onChange = {(e) => props.handleChange(e.target.value)}
             />
           </div>
         </Toolbar>
