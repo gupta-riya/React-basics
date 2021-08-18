@@ -5,13 +5,13 @@ body{
 }
 
 .navbar{
-    background-color: rgba(223, 219, 219, 0.945);
+    background-color: rgba(240, 238, 238, 0.945);
     position:fixed;
     top:0;
     left: 0;
     width:100%;
-    padding:0.50rem 2rem;
-    
+    padding:0.75rem 2rem;
+    z-index: 1;
 }
 
 .nav-header{
@@ -44,7 +44,7 @@ body{
 }
 
 .show-nav-link{
-    height:100px;
+    height:60px;
 }
 
 
@@ -55,7 +55,7 @@ body{
     font-weight: 600;
     transition: all 0.3s linear; 
     text-align: center;
-    padding: 1rem 0;
+    padding: 0.2rem 0;
     padding-right: 3rem;
     
 }
