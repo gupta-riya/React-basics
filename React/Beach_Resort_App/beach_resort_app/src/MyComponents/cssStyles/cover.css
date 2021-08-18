@@ -4,7 +4,6 @@
 
     min-height : calc(100vh - 87px);
     width:100%;
-    background-color: antiquewhite;
     text-align: center;
     margin-top: 87px;
     display: flex;
@@ -19,7 +18,7 @@
     padding: 2rem 4rem;
     text-align: center;
     align-self: center;
-    background-color: rgb(194, 71, 71);
+    background-color: rgba(0,0,0,.5);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -53,11 +52,20 @@
     padding: 0.7rem 1rem;
     font-size: 1.1rem;
     color: black;
-    border: none;
+    border: 3px solid transparent;
     background-color: rgb(197, 162, 97);
 }
 
-@media screen and (min-width: 576px)
+.cover-button:hover{
+
+    display: inline-block;
+    border: 3px solid rgb(197, 162, 97);
+    background: transparent ;
+    color: rgb(197, 162, 97)
+
+}
+
+@media screen and (min-width: 850px)
 {
     .main-heading{
         font-size: 5rem;
