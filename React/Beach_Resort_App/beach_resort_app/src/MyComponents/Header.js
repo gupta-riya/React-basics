@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import './cssStyles/header.css'
 import {FaAlignJustify} from 'react-icons/fa';
+import {Link} from 'react-router-dom';
 
 export default class Header extends Component {
 
@@ -31,8 +32,8 @@ export default class Header extends Component {
                                 </button>
                             </div>
                             <ul className = {this.state.isOpen ? "nav-links show-nav-link":"nav-links"}>
-                                <li className = "nav-list">Home</li>
-                                <li className = "nav-list">Rooms</li>
+                                <li className = "nav-list"><Link to = "/" className="alinks">Home</Link></li>
+                                <li className = "nav-list"><Link to = "/rooms" className="alinks">Rooms</Link></li>
                             </ul>
 
                         </div>

@@ -51,9 +51,11 @@
 .cover-button{
     padding: 0.7rem 1rem;
     font-size: 1.1rem;
+    font-weight: 500;
     color: black;
     border: 3px solid transparent;
     background-color: rgb(197, 162, 97);
+    text-decoration: none;
 }
 
 .cover-button:hover{

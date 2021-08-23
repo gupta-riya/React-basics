@@ -1,5 +1,6 @@
 import React from 'react'
 import './cssStyles/cover.css'
+import {Link} from 'react-router-dom'
 
 function Cover(props) {
 
@@ -15,7 +16,7 @@ function Cover(props) {
                 </h1>
                 <div className = "divider"></div>
                 <h2>{props.desc}</h2>
-                <button className = "cover-button">{props.btn_txt}</button>
+                <Link to = {props.alink} className = "cover-button">{props.btn_txt}</Link>
             </div>
 
 

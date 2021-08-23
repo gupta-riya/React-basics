@@ -58,6 +58,12 @@ body{
     padding: 0.2rem 0;
     padding-right: 3rem;
     
+    
+}
+
+.alinks{
+    text-decoration: none;
+    color : black
 }
 
 
