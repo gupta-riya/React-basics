@@ -1,5 +1,7 @@
 import React from 'react'
 import Cover from './Cover.js'
+import './cssStyles/home.css' 
+import Services from './Services.js'
 
 function Home() {
 
@@ -13,6 +15,11 @@ function Home() {
         <>
           
             <Cover head = {head} desc={desc} btn_txt={btn_txt} img = {img}/>
+            <section className = "home_section">
+                <p className = "services_title" >Services</p>
+                <div className = "divider"></div>
+                <Services/>
+            </section>
 
         </>
         
