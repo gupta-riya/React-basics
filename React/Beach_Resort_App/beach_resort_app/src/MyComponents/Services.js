@@ -14,15 +14,25 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(1),
     textAlign: 'center',
     backgroundColor: 'transparent',
-    border : '1px solid red' 
+    color : 'black'
   },
   service_icon : {
       color :' rgb(177, 126, 33)',
-      fontSize : '2.2rem'
+      fontSize : '2.2rem',
+      
+  },
+  title : {
+    fontSize : '1.5rem',
+    margin : '1rem 0',
+    fontWeight : '500'
+  },
+  desc : {
+    fontSize :'1rem',
+    padding : '0 1rem'
   }
 }));
 
-// rgb(197, 162, 97);
+
 
 export default function Services() {
   const classes = useStyles();
@@ -30,28 +40,32 @@ export default function Services() {
   function FormRow() {
     return (
       <React.Fragment>
-        <Grid item xs={3}>
+        <Grid item xs={12} sm ={6} md={3} >
           <div className={classes.paper}>
                 <LocalBarIcon className={classes.service_icon} />
-                <div>Free Cocktails</div>
+                <p className = {classes.title}>Free Cocktails</p>
+                <p className = {classes.desc}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias molestias eius libero?</p>
           </div>
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={12} sm ={6} md={3}>
           <div className={classes.paper}>
             <FastfoodIcon className={classes.service_icon} />
-            <div>Unlimited Food</div>
+            <p className = {classes.title}>Unlimited Food</p>
+            <p className = {classes.desc}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias molestias eius libero?</p>
           </div>
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={12} sm ={6} md={3}>
           <div className={classes.paper}>
             <AirportShuttleIcon className={classes.service_icon} />
-            <div>Free Shuttle</div>
+            <p className = {classes.title}>Free Shuttle</p>
+            <p className = {classes.desc}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias molestias eius libero?</p>
           </div>
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={12} sm ={6} md={3}>
           <div className={classes.paper}>
             <EmojiPeopleIcon className={classes.service_icon} />
-            <div>Endless Hiking</div>
+            <p className = {classes.title}>Endless Hiking</p>
+            <p className = {classes.desc}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias molestias eius libero?</p>
           </div>
         </Grid>
       </React.Fragment>
