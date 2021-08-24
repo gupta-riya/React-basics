@@ -3,7 +3,7 @@
 
     padding : 0 2rem 0 2rem;
     display: grid;
-    background-color: aqua;
+    /* background-color: aqua; */
     grid-template-columns: 20% 20% 20% 20% 20%;
     
     
@@ -11,7 +11,7 @@
 
 .grid-item{
     /* background-color: blue; */
-    border: 1px solid red;
+    /* border: 1px solid red; */
     text-align: left;
     margin-right: 20px;
     padding-bottom: 5rem;
@@ -23,6 +23,7 @@ h4{
 
 .type,.guest{
     width : 100%;
+    border: 1px solid black;
     border-radius: 5px;
     height: 1.3rem;
     position: relative;
@@ -30,8 +31,54 @@ h4{
 }
 
 .price{
-    /* width:100%; */
+    width:100%;
 }
 
+.room-size{
+    display:flex;
+    width: 100%;
+}
 
+.lowsize,.highsize{
+    width:40%;
+    border-radius: 5px;
+    border: 1px solid black;
+}
 
+.lowsize{
+    margin-right: 5%;
+}
+
+.room-opt{
+    padding-top: 1rem;
+}
+
+@media only screen and (max-width: 1227px) {
+    .room-container{
+        grid-template-columns: 25% 25% 25% 25%;
+    }
+}
+
+@media only screen and (max-width: 1227px) {
+    .room-container{
+        grid-template-columns: 25% 25% 25% 25%;
+    }
+}
+
+@media only screen and (max-width: 990px) {
+    .room-container{
+        grid-template-columns: 33% 33% 33% ;
+    }
+}
+
+@media only screen and (max-width: 978px) {
+    .room-container{
+        grid-template-columns: 50% 50% ;
+    }
+}
+
+@media only screen and (max-width: 730px) {
+    .room-container{
+        grid-template-columns: 100% ;
+    }
+}

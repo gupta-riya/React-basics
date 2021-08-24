@@ -36,14 +36,23 @@ export default class RoomsOptions extends Component{
                     </div>
                     <div className = "grid-item room-price">                    
                         <h4>ROOM PRICE</h4>
-                        <input type="range" min="0" max="600" value="600" className = "price" onChange={(e)=>{console.log(e.target.value)}}/>
+                        <input type="range" min="0" max="600" defaultValue="600" className = "price" onChange={(e)=>{console.log(e.target.value)}}/>
                         
                     </div>
-                    <div className = "grid-item room-size">
-                        4
+                    <div className = "grid-item ">
+                        <h4>ROOM SIZE</h4>
+                        <div className = "room-size">
+                            <input type="number" defaultValue="0" min = "0" className="lowsize"></input>
+                            <input type="number" defaultValue="1000" max = "1000" className="highsize"></input>
+                        </div>
+                        
                     </div>
                     <div className = "grid-item room-opt">
-                        5
+                        <input type="checkbox" value="breakfast"/>
+                        <label>Breakfast</label>
+                            <br/>
+                        <input type="checkbox" value="pet"/>
+                        <label>Pet</label>
                     </div>
                 </div>
             
