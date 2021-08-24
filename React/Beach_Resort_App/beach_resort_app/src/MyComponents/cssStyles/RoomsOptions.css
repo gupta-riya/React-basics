@@ -1,0 +1,37 @@
+
+.room-container{
+
+    padding : 0 2rem 0 2rem;
+    display: grid;
+    background-color: aqua;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    
+    
+}
+
+.grid-item{
+    /* background-color: blue; */
+    border: 1px solid red;
+    text-align: left;
+    margin-right: 20px;
+    padding-bottom: 5rem;
+}
+
+h4{
+    margin: 5px 0;
+}
+
+.type,.guest{
+    width : 100%;
+    border-radius: 5px;
+    height: 1.3rem;
+    position: relative;
+    display: inline-block;
+}
+
+.price{
+    /* width:100%; */
+}
+
+
+

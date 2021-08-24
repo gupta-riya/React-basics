@@ -1,0 +1,27 @@
+
+.service_section{
+
+    padding : 3rem 2rem;
+    background-color: white;
+    max-width : 100vw;
+    text-align: center;
+    display : flex;
+    flex-direction: column;
+
+}
+
+.services_title{
+
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.divider{
+    width: 10rem;
+    height: 0.3rem;
+    background-color: rgb(197, 162, 97);
+    align-self: center;
+    
+    margin-bottom: 3rem;
+}
