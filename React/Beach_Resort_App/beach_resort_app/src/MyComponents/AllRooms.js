@@ -2,7 +2,8 @@ import React,{Component} from 'react';
 import Cover from './Cover.js';
 import RoomsOptions from './RoomsOptions';
 import './cssStyles/AllRooms.css'
-
+import {data} from './Data.js'
+import Feature from './Feature'
 
 export default class AllRooms extends Component {
 
@@ -13,8 +14,9 @@ export default class AllRooms extends Component {
         const head = "Our Rooms";
         const desc = "";
         const btn_txt = "RETURN HOME";
-        const img = "room-9.jpeg";
+        const img = "/Images/room-9.jpeg";
         const alink = "/";
+        const filteredData = data;
 
         return(
 
@@ -24,6 +26,7 @@ export default class AllRooms extends Component {
                 <p className = "services_title" >Search Rooms</p>
                 <div className = "divider"></div>
                 <RoomsOptions/>
+                <Feature featuredRooms = {filteredData}/>
             </section>
             </>
         )

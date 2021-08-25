@@ -14,7 +14,7 @@ export default class RoomsOptions extends Component{
                     <h4>ROOM TYPE</h4>
                     <select className="type" name="rooms">
                         <option value="">all</option>
-                        <option value="singleb">single</option>
+                        <option value="single">single</option>
                         <option value="double">double</option>
                         <option value="family">family</option>
                         <option value="presdential">presdential</option>
@@ -55,7 +55,10 @@ export default class RoomsOptions extends Component{
                         <label>Pet</label>
                     </div>
                 </div>
-            
+
+                <div className = "various-rooms">
+                    
+                </div>
             </>
         )
     }

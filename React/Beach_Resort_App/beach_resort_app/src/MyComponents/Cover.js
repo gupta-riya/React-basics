@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 
 function Cover(props) {
 
-    let url = `http://localhost:3000/Images/`;
+    let url = `http://localhost:3000`;
     let  img_url = url + props.img;
     
     return (

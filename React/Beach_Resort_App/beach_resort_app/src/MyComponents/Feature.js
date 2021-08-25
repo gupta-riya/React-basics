@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
+import {Link} from 'react-router-dom'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -106,60 +107,48 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-export default function Feature() {
+export default function Feature(props) {
   const classes = useStyles();
 
+
+  function handleClick(room){
+
+    <Link to = "/sroom"
+
+  }
+
+
   function FormRow() {
+
+    const data = props.featuredRooms;
+
+
     return (
       <React.Fragment>
-        <Grid item sm={12} md ={6} lg={4} >
-          <div className={classes.paper}>
-              <div className = {classes.img_container}>
-                  <img className = {classes.bc_img} src = "./Images/room-8.jpeg" alt = "bc_img"/> 
-                  <div className = {classes.price_info}>
-                      <h4 className = {classes.price}>$ 400</h4>
-                      <p className = {classes.p_ngt}>per night</p>
-                  </div>
-                  <button className = {classes.feature_button}>FEATURES</button>
-              </div>
-              <div className = {classes.room_info}>
-                  Double Deluxe
-              </div>
-                
-          </div>
-        </Grid>
-        <Grid item sm={12} md ={6} lg={4}>
-          <div className={classes.paper}>
-            <div className = {classes.img_container}>
-                  <img className = {classes.bc_img} src = "./Images/room-12.jpeg" alt = "bc_img"/> 
-                  <div className = {classes.price_info}>
-                      <h4 className = {classes.price}>$ 500</h4>
-                      <p className = {classes.p_ngt}>per night</p>
-                  </div>
-                  <button className = {classes.feature_button}>FEATURES</button>
-              </div>
-              <div className = {classes.room_info}>
-                  Family Deluxe
-              </div>
-           
-          </div>
-        </Grid>
-        <Grid item sm={12} md ={6} lg={4}>
-          <div className={classes.paper}>
-            <div className = {classes.img_container}>
-                <img className = {classes.bc_img} src = "./Images/details-1.jpeg" alt = "bc_img"/> 
-                <div className = {classes.price_info}>
-                    <h4 className = {classes.price}>$ 600</h4>
-                    <p className = {classes.p_ngt}>per night</p>
+
+      {data.map((room) => {
+
+        return (
+            <Grid item sm={12} md ={6} lg={4} >
+            <div className={classes.paper}>
+                <div className = {classes.img_container}>
+                    <img className = {classes.bc_img} src = {room.fields.images[0].fields.file.url} alt = "bc_img"/> 
+                    <div className = {classes.price_info}>
+                        <h4 className = {classes.price}>$ {room.fields.price}</h4>
+                        <p className = {classes.p_ngt}>per night</p>
+                    </div>
+                    <button className = {classes.feature_button} onClick = {handleClick(room)}>FEATURES </button>
                 </div>
-                <button className = {classes.feature_button}>FEATURES</button>
+                <div className = {classes.room_info}>
+                    {room.fields.name.toUpperCase()}
+                </div>
+                  
             </div>
-            <div className = {classes.room_info}>
-                Presidential
-            </div>
-            
-          </div>
-        </Grid>
+          </Grid>
+        )
+
+
+      })}
       </React.Fragment>
     );
   }

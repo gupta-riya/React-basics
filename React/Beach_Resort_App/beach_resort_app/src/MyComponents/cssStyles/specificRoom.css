@@ -1,0 +1,103 @@
+body{
+ font-family : Verdana,Geneva,Tahoma,sans-serif;
+}
+
+.room-tour{
+
+    padding : 3rem 4rem ;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+}
+
+
+.tour-item{
+    
+    margin-right: 20px;
+    /* height: 300px; */
+    
+}
+
+.tourImg{
+    object-fit: cover;
+    width: 100%;
+    max-height: 100%;
+}
+
+.room-info{
+
+    padding : 3rem 4rem ;
+    display: grid;
+    grid-template-columns: 50% 50%;
+
+}
+
+.details{
+    padding : 0 2rem;
+}
+
+.details h5,.extras h5{
+    font-weight: 300;
+    font-size: 1rem;
+}
+
+.more-details{
+
+    padding : 1rem 4rem ;
+    
+}
+
+.more-details h3{
+   padding-left: 2rem;
+}
+
+.room-extras{
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+
+}
+
+.extras{
+    padding : 0 2rem;
+}
+
+.extras h5{
+    margin-bottom:10px
+}
+
+
+
+@media only screen and (max-width: 1190px) {
+    .room-tour{
+        grid-template-columns: 50% 50%;
+    }
+}
+
+@media only screen and (max-width: 935px) {
+    .room-tour{
+        grid-template-columns: 100%;
+    }
+}
+
+
+@media only screen and (max-width: 985px) {
+    .room-info{
+        grid-template-columns: 100%;
+    }
+}
+
+@media only screen and (max-width: 1097px) {
+    .room-extras{
+        grid-template-columns: 50% 50%;
+    }
+}
+
+
+@media only screen and (max-width: 863px) {
+    .room-extras{
+        grid-template-columns: 100%;
+    }
+}
+
+
+
+
