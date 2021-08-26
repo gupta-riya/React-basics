@@ -82,6 +82,7 @@ const useStyles = makeStyles((theme) => ({
      
   },
   feature_button : {
+    textDecoration:"none",
     padding: '0.4rem 1rem',
     fontSize: '1.1rem',
     color: 'black',
@@ -110,6 +111,7 @@ const Feature = memo(({room})=>{
 
   const classes = useStyles();
   const rooms = [...room];
+  console.log(rooms);
 
   function FormRow()
   {

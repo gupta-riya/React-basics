@@ -46,7 +46,7 @@ export default class RoomProvider extends Component{
 
         let tempItems = data.map((item)=>{
             let id = item.sys.id;
-            let images = item.fields.images.map(image=>image.field.file.url);
+            let images = item.fields.images.map(image=>image.fields.file.url);
             let room = {...item.fields,images,id};
             return room;
         });
@@ -146,8 +146,8 @@ export default class RoomProvider extends Component{
 
 
 const RoomConsumer = RoomContext.Consumer;
+export{RoomProvider,RoomConsumer,RoomContext};
 
-export {RoomProvider,RoomConsumer,RoomContext};
 
 export function withRoomConsumer(Component){
     return function ConsumerWrapper(props){
