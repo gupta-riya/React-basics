@@ -9,6 +9,7 @@ export default class RoomProvider extends Component{
         room: [],
         sortedRooms: [],
         featuredRooms: [],
+        loading:true,
         type : "all",
         capacity: 1,
         price: 600,
@@ -32,6 +33,7 @@ export default class RoomProvider extends Component{
             rooms,
             featuredRooms,
             sortedRooms: rooms,
+            loading:false,
             price: maxPrice,
             maxPrice,
             maxSize
