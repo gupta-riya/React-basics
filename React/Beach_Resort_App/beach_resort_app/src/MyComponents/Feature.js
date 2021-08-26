@@ -113,7 +113,7 @@ export default function Feature(props) {
 
   function handleClick(room){
 
-    <Link to = "/sroom"
+    // <Link to = "/sroom"
 
   }
 
@@ -134,7 +134,7 @@ export default function Feature(props) {
                 <div className = {classes.img_container}>
                     <img className = {classes.bc_img} src = {room.fields.images[0].fields.file.url} alt = "bc_img"/> 
                     <div className = {classes.price_info}>
-                        <h4 className = {classes.price}>$ {room.fields.price}</h4>
+                        <h5 className = {classes.price}>$ {room.fields.price}</h5>
                         <p className = {classes.p_ngt}>per night</p>
                     </div>
                     <button className = {classes.feature_button} onClick = {handleClick(room)}>FEATURES </button>

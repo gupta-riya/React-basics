@@ -1,8 +1,8 @@
 import React,{Component} from 'react';
 import Cover from './Cover.js';
 import RoomsOptions from './RoomsOptions';
-import './cssStyles/AllRooms.css'
-import {data} from './Data.js'
+import '../cssStyles/AllRooms.css'
+import {data} from '../Data'
 import Feature from './Feature'
 
 export default class AllRooms extends Component {

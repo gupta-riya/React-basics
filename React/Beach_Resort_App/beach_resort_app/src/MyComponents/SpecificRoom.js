@@ -1,7 +1,7 @@
 import React from 'react'
 import Cover from './Cover'
-import {data} from './Data'
-import './cssStyles/specificRoom.css'
+import {data} from '../Data.js'
+import '../cssStyles/specificRoom.css'
 
 
 

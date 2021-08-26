@@ -1,9 +1,9 @@
 import React from 'react'
 import Cover from './Cover.js'
-import './cssStyles/home.css' 
+import '../cssStyles/home.css' 
 import Services from './Services.js'
 import Feature from './Feature.js'
-import {data} from './Data.js'
+import {data} from '../Data.js'
 
 function Home() {
 

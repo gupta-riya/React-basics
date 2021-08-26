@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import './cssStyles/RoomsOptions.css'
+import '../cssStyles/RoomsOptions.css'
 export default class RoomsOptions extends Component{
 
     

@@ -1,5 +1,5 @@
 import React from 'react'
-import './cssStyles/cover.css'
+import '../cssStyles/cover.css'
 import {Link} from 'react-router-dom'
 
 function Cover(props) {
