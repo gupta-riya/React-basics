@@ -8,7 +8,7 @@ import {Link} from 'react-router-dom'
 export default class SpecificRoom extends Component{
     constructor(props){
         super(props);
-        console.log(this.props);
+        // console.log(this.props);
         this.state = {
             slug : this.props.match.params.slug
         }
@@ -21,45 +21,53 @@ export default class SpecificRoom extends Component{
         return input.toLowerCase().split(' ').map(s => s.charAt(0).toUpperCase() + s.substring(1)).join(' ');  
     }
 
+    imgPath(url)
+    {
+        const path = `http://localhost:3000`;
+        return path + url.replace(".","")  ; 
+    }
+
     render(){
 
-        console.log(this.context);
-        // const {getRoom} = this.contextType;
-        // const room = getRoom(this.state.slug);
+        
+        const {getRoom} = this.context;
+        const room = getRoom(this.state.slug);
 
-        // if(!room)
-        // {
-        //     return(
-        //         <div>
-        //             <h3>No such Room can be founded....</h3>
-        //             <Link to = '/rooms'>Back To Rooms</Link>
-        //         </div>
-        //     )
-        // }
+        if(!room)
+        {
+            return(
+                <div>
+                    <h3>No such Room can be founded....</h3>
+                    <Link to = '/rooms'>Back To Rooms</Link>
+                </div>
+            )
+        }
 
-        // let {name,description,capacity,size,price,extras,breakfast,pets,images} = room;
+        let {name,description,capacity,size,price,extras,breakfast,pets,images} = room;
 
-        // const [main,...defaultImages] = images;
+        const [main,...defaultImages] = images;
 
-        // name = this.capitalize(name) + " Room";
+        name = this.capitalize(name) + " Room";
 
-        // const desc = "";
-        // const btn_txt = "BACK TO ROOMS";
-        // const img = (main).replace(".","");
-        // const alink = "/rooms";
+        const desc = "";
+        const btn_txt = "BACK TO ROOMS";
+        const img = (main).replace(".","");
+        const alink = "/rooms";
+        
 
         return(
 
             <>
-            {/* <Cover head = {name} desc={desc} btn_txt={btn_txt} img = {img} alink = {alink}/>
+            <Cover head = {name} desc={desc} btn_txt={btn_txt} img = {img} alink = {alink}/>
             
             <div className = "room-tour">
             {
                 defaultImages.map((e,idx)=>{
                 return(
                     
-                        <div className = "tour-item">
-                            <img key = {idx} src = {e} alt={name} className="tourImg"/>
+                        <div  key = {idx} className = "tour-item">
+                            <img src = {this.imgPath(e)} alt={name} className="tourImg"/>
+                            {console.log(e)}
                         </div>
                     
                 )
@@ -98,7 +106,7 @@ export default class SpecificRoom extends Component{
                 </div>
                 
             </div>
-         */}
+        
         
         </>
         )

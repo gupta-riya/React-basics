@@ -111,7 +111,7 @@ const Feature = memo(({room})=>{
 
   const classes = useStyles();
   const rooms = [...room];
-  console.log(rooms);
+  
 
   function FormRow()
   {
@@ -148,6 +148,14 @@ const Feature = memo(({room})=>{
     )
   }
 
+  if(rooms.length === 0)
+  {
+    return(
+      <div className="empty-search">
+        <h3>Unfortunately no rooms matched your search parameters!!!</h3>
+      </div>
+    )
+  }
 
   return (
     <div className={classes.root}>

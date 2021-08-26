@@ -58,8 +58,9 @@ export default class RoomProvider extends Component{
 
 
     getRoom = (slug) =>{
+        console.log(this.state.rooms);
         let tempRooms = [...this.state.rooms];
-        const room = tempRooms.filter((item)=> item.slug===slug);
+        const room = tempRooms.find((item)=> item.slug===slug);
         return room;
     }
 
