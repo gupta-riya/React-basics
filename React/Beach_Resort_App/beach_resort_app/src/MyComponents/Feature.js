@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import {Link} from 'react-router-dom'
+import {memo} from "react"
 
 
 const useStyles = makeStyles((theme) => ({
@@ -105,53 +106,46 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
+const Feature = memo(({room})=>{
 
-
-export default function Feature(props) {
   const classes = useStyles();
+  const rooms = [...room];
 
-
-  function handleClick(room){
-
-    // <Link to = "/sroom"
-
-  }
-
-
-  function FormRow() {
-
-    const data = props.featuredRooms;
-
-
-    return (
+  function FormRow()
+  {
+    return(
       <React.Fragment>
-
-      {data.map((room) => {
-
-        return (
+        
+        {
+          rooms.map((room)=>{
+            return(
             <Grid item sm={12} md ={6} lg={4} >
-            <div className={classes.paper}>
-                <div className = {classes.img_container}>
-                    <img className = {classes.bc_img} src = {room.fields.images[0].fields.file.url} alt = "bc_img"/> 
-                    <div className = {classes.price_info}>
-                        <h5 className = {classes.price}>$ {room.fields.price}</h5>
-                        <p className = {classes.p_ngt}>per night</p>
-                    </div>
-                    <button className = {classes.feature_button} onClick = {handleClick(room)}>FEATURES </button>
-                </div>
-                <div className = {classes.room_info}>
-                    {room.fields.name.toUpperCase()}
-                </div>
-                  
-            </div>
-          </Grid>
-        )
+              <div className={classes.paper}>
+                  <div className = {classes.img_container}>
+                      <img className = {classes.bc_img} src = {room.images[0]} alt = "bc_img"/> 
+                      <div className = {classes.price_info}>
+                          <h5 className = {classes.price}>$ {room.price}</h5>
+                          <p className = {classes.p_ngt}>per night</p>
+                      </div>
+                      <Link to={`/rooms/${room.slug}`} className = {classes.feature_button} >FEATURES </Link>
+                  </div>
+                  <div className = {classes.room_info}>
+                      {room.name.toUpperCase()}
+                  </div>
+                    
+              </div>
+            </Grid> 
+            )     
 
-
-      })}
-      </React.Fragment>
-    );
+          })
+        }
+        
+              
+        </React.Fragment>
+  
+    )
   }
+
 
   return (
     <div className={classes.root}>
@@ -162,4 +156,47 @@ export default function Feature(props) {
       </Grid>
     </div>
   );
-}
+  
+})
+
+export default Feature;
+
+
+
+
+
+
+ // function FormRow() {
+
+  //   const data = props.featuredRooms;
+
+
+  //   return (
+  //     <React.Fragment>
+
+  //     {data.map((room) => {
+
+  //       return (
+  //           <Grid item sm={12} md ={6} lg={4} >
+  //           <div className={classes.paper}>
+  //               <div className = {classes.img_container}>
+  //                   <img className = {classes.bc_img} src = {room.fields.images[0].fields.file.url} alt = "bc_img"/> 
+  //                   <div className = {classes.price_info}>
+  //                       <h5 className = {classes.price}>$ {room.fields.price}</h5>
+  //                       <p className = {classes.p_ngt}>per night</p>
+  //                   </div>
+  //                   <button className = {classes.feature_button} onClick = {handleClick(room)}>FEATURES </button>
+  //               </div>
+  //               <div className = {classes.room_info}>
+  //                   {room.fields.name.toUpperCase()}
+  //               </div>
+                  
+  //           </div>
+  //         </Grid>
+  //       )
+
+
+  //     })}
+  //     </React.Fragment>
+  //   );
+  // }

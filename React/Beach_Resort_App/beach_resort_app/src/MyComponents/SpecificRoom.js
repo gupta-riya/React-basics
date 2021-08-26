@@ -1,37 +1,65 @@
-import React from 'react'
+import React,{Component} from 'react'
 import Cover from './Cover'
-import {data} from '../Data.js'
 import '../cssStyles/specificRoom.css'
+import { RoomContext } from '../context';
+import {Link} from 'react-router-dom'
 
 
+export default class SpecificRoom extends Component{
+    constructor(props){
+        super(props);
+        console.log(this.props);
+        this.state = {
+            slug : this.props.match.params.slug
+        }
+    }
 
-function capitalize(input)
-{
-    return input.toLowerCase().split(' ').map(s => s.charAt(0).toUpperCase() + s.substring(1)).join(' ');  
-}
+    static contextType = RoomContext;
 
-function SpecificRoom() {
+    capitalize(input)
+    {
+        return input.toLowerCase().split(' ').map(s => s.charAt(0).toUpperCase() + s.substring(1)).join(' ');  
+    }
 
-    const roomInfo = data[0];
-    const head = capitalize(roomInfo.fields.name);
-    const desc = "";
-    const btn_txt = "BACK TO ROOMS";
-    const img = (roomInfo.fields.images[0].fields.file.url).replace(".","");
-    const alink = "/rooms";
-    const [,...tourImg] = roomInfo.fields.images;
-    const pets = roomInfo.fields.pets ? "Allowed" : "Not Allowed";
-    
-    return (
-        <>
-            <Cover head = {head} desc={desc} btn_txt={btn_txt} img = {img} alink = {alink}/>
+    render(){
+
+        console.log(this.context);
+        // const {getRoom} = this.contextType;
+        // const room = getRoom(this.state.slug);
+
+        // if(!room)
+        // {
+        //     return(
+        //         <div>
+        //             <h3>No such Room can be founded....</h3>
+        //             <Link to = '/rooms'>Back To Rooms</Link>
+        //         </div>
+        //     )
+        // }
+
+        // let {name,description,capacity,size,price,extras,breakfast,pets,images} = room;
+
+        // const [main,...defaultImages] = images;
+
+        // name = this.capitalize(name) + " Room";
+
+        // const desc = "";
+        // const btn_txt = "BACK TO ROOMS";
+        // const img = (main).replace(".","");
+        // const alink = "/rooms";
+
+        return(
+
+            <>
+            {/* <Cover head = {name} desc={desc} btn_txt={btn_txt} img = {img} alink = {alink}/>
             
             <div className = "room-tour">
             {
-                tourImg.map((e)=>{
+                defaultImages.map((e,idx)=>{
                 return(
                     
                         <div className = "tour-item">
-                            <img src = {e.fields.file.url} alt="" className="tourImg"/>
+                            <img key = {idx} src = {e} alt={name} className="tourImg"/>
                         </div>
                     
                 )
@@ -42,16 +70,16 @@ function SpecificRoom() {
             <div className = "room-info">
                 <div className="details">
                     <h3>Details</h3>
-                    <h5>{roomInfo.fields.description}</h5>
+                    <h5>{description}</h5>
                 </div>
                 <div className="details">
                     <h3>Info</h3>
-                    <h5>Price : ${roomInfo.fields.price}</h5>
-                    <h5>Size : {roomInfo.fields.size} SQFT</h5>
-                    <h5>Max Capacity : {roomInfo.fields.capacity} Person</h5>
-                    <h5>Pets {pets} </h5>
-                    {roomInfo.fields.breakfast && 
-                        <h5>Free Breakfast Included</h5>}
+                    <h5>Price : ${price}</h5>
+                    <h5>Size : {size} SQFT</h5>
+                    <h5>Max Capacity : {capacity} {capacity > 1 ? " People":" Person"} </h5>
+                    <h5>{pets ? "Pets Allowed" : "No Pets Allowed"} </h5>
+                    <h5>{breakfast && 
+                        "Free Breakfast Included"}</h5>
                 </div>
             </div>
         
@@ -60,9 +88,9 @@ function SpecificRoom() {
                 <h3>Extras</h3>
             
                 <div className = "room-extras">
-                    {roomInfo.fields.extras.map((txt)=>{
+                    {extras.map((txt,idx)=>{
                         return(
-                            <div className="extras">
+                            <div key = {idx} className="extras">
                                 <h5>-{txt}</h5>
                             </div>
                         )
@@ -70,10 +98,19 @@ function SpecificRoom() {
                 </div>
                 
             </div>
-        
+         */}
         
         </>
-    )
+        )
+    }
+
+
+
+
+
+
+
+
 }
 
-export default SpecificRoom
+
