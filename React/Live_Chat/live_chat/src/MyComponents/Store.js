@@ -1,6 +1,6 @@
 import React from 'react' 
 
-const ctx = React.createContext();
+export const ctx = React.createContext();
 
 /*
 
