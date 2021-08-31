@@ -56,7 +56,7 @@ export default function Dashboard()
     const classes = useStyles();
 
     // context
-    const [allChats] = React.useContext(ctx);
+    const {allChats,sendChatAction,user} = React.useContext(ctx);
     // console.log({allChats});
 
     const topics = Object.keys(allChats);
@@ -72,7 +72,7 @@ export default function Dashboard()
                 <Typography variant="h4" component="h4">
                     Chat App
                 </Typography>
-                <Typography component="h5">
+                <Typography variant="h5" component="h5">
                     {activeTopic}
                 </Typography>
 
@@ -96,7 +96,7 @@ export default function Dashboard()
                             
                                 <div className={`${classes.flex} ${classes.chatItem}`}>
                                     <Chip label={chat.from} className={classes.chip} key={idx} />
-                                    <Typography varient='body1' gutterBottom>{chat.msg}</Typography>
+                                    <Typography variant='body1' gutterBottom>{chat.msg}</Typography>
                                 </div>
                                 
                                 
@@ -114,7 +114,13 @@ export default function Dashboard()
                         onChange={(e)=>changeTextValue(e.target.value)}/>
                     </div>
                     <div className={classes.button}>
-                    <Button variant="contained" color="primary">
+                    <Button 
+                        variant="contained"
+                        color="primary"
+                        onClick = {()=>{
+                                    sendChatAction({from:user,msg:textValue,topic:activeTopic});
+                                    changeTextValue("");
+                                }}>
                         Send
                     </Button>
                     </div>
