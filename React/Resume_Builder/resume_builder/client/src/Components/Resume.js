@@ -61,10 +61,15 @@ export default class Resume extends Component{
         }
 
         return(
-            <Profile 
-                nextStep={this.nextStep}
-                handleChange= {this.handleChange}
-                values={values}/>
+
+            <div className = "App mt-3">
+                <div className = "container col-lg-10 mx-auto text-center">
+                    <Profile 
+                        nextStep={this.nextStep}
+                        handleChange= {this.handleChange}
+                        values={values}/>
+                </div>
+            </div>
         )
 
 
