@@ -3,6 +3,7 @@ import React,{Component} from 'react'
 import Profile from './Profile'
 import Education from './Education'
 import Project from './Project'
+import Experience from './Experience'
 
 export default class Resume extends Component{
 
@@ -66,7 +67,7 @@ export default class Resume extends Component{
 
             <div className = "App mt-3">
                 <div className = "container col-lg-10 mx-auto text-center">
-                    <Project 
+                    <Experience
                         nextStep={this.nextStep}
                         handleChange= {this.handleChange}
                         values={values}/>
