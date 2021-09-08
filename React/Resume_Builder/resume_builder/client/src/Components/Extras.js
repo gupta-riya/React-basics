@@ -26,7 +26,7 @@ const styles = theme => ({
 })
 
 
-class Experience extends Component{
+class Extras extends Component{
 
 
     render(){
@@ -37,82 +37,88 @@ class Experience extends Component{
         return(
             <Paper className={classes.padding}>
                 <Card>
-                    <CardHeader title = "Experience Details"></CardHeader>
+                    <CardHeader title = "Extra Details"></CardHeader>
                 </Card>
                 <CardContent>
                     <div className={classes.margin}>
                         <Grid container spacing={2} alignItems="center" >
 
-                            <Grid item xs={12} sm={12} md={6} lg={4}>
+                            <Grid item xs={12} sm={12} md={12} lg={12}>
                                 <h4>
                                     <CheckCircleIcon/>
-                                    <span className="pl-3">Experience 1</span>
+                                    <span className="pl-3">Skills/Languages</span>
                                 </h4>                                
                             </Grid>
-                            <Grid item sm={false}  lg={8}/>
-                               
+                            
+
                             <Grid item xs={12} sm={12} md={6} lg={4}>
                                 <TextField margin="dense"
                                     variant="outlined"
-                                    name="institute1"
-                                    label="Institute/Organization"
+                                    name="skill1"
+                                    label="Skill 1"
                                     style={{width: '100%'}}
-                                    required
-                                    value={values.institute1}
-                                    onChange={this.props.handleChange} 
-                                    InputProps = {{
-                                        endAdornment  : (
-                                            <InputAdornment position="end">
-                                                <BusinessIcon/>
-                                            </InputAdornment>
-                                        )
-                                    }}/>
-                            </Grid>
-                            <Grid item xs={12} sm={12} md={6} lg={4}>
-                                <TextField margin="dense"
-                                    variant="outlined"
-                                    name="position1"
-                                    label="Position"
-                                    style={{width: '100%'}}
-                                    required
-                                    value={values.position1}
-                                    onChange={this.props.handleChange} 
-                                    InputProps = {{
-                                        endAdornment  : (
-                                            <InputAdornment position="end">
-                                                <BusinessIcon/>
-                                            </InputAdornment>
-                                        )
-                                    }}/>
-                            </Grid>
-                            <Grid item xs={12} sm={12} md={6} lg={4}>
-                                <TextField margin="dense"
-                                    variant="outlined"
-                                    name="duration1"
-                                    label="Duration"
-                                    style={{width: '100%'}}
-                                    required
-                                    value={values.duration1}
-                                    onChange={this.props.handleChange} 
-                                    InputProps = {{
-                                        endAdornment  : (
-                                            <InputAdornment position="end">
-                                                <TimelapseIcon/>
-                                            </InputAdornment>
-                                        )
-                                    }}/>
-                            </Grid>
-                            <Grid item xs={12} sm={12} md={12} lg={12}>
-                                <TextField margin="dense"
-                                    variant="outlined"
-                                    name="edescription1"
-                                    label="Description"
-                                    style={{width: '100%'}}
-                                    required
-                                    value={values.edescription1}
+                                    
+                                    value={values.skill1}
                                     onChange={this.props.handleChange} 
                                     />
                             </Grid>
+                            <Grid item xs={12} sm={12} md={6} lg={4}>
+                                <TextField margin="dense"
+                                    variant="outlined"
+                                    name="skill2"
+                                    label="Skill 2"
+                                    style={{width: '100%'}}
+                                    
+                                    value={values.skill2}
+                                    onChange={this.props.handleChange} 
+                                    />
+                            </Grid>                               
+                            <Grid item xs={12} sm={12} md={6} lg={4}>
+                                <TextField margin="dense"
+                                    variant="outlined"
+                                    name="skill3"
+                                    label="Skill 3"
+                                    style={{width: '100%'}}
+                                    
+                                    value={values.skill3}
+                                    onChange={this.props.handleChange} 
+                                    />
+                            </Grid>
+                            <Grid item xs={12} sm={12} md={6} lg={4}>
+                                <TextField margin="dense"
+                                    variant="outlined"
+                                    name="skill4"
+                                    label="Skill 4"
+                                    style={{width: '100%'}}
+                                    
+                                    value={values.skill4}
+                                    onChange={this.props.handleChange} 
+                                    />
+                            </Grid>
+                            <Grid item xs={12} sm={12} md={6} lg={4}>
+                                <TextField margin="dense"
+                                    variant="outlined"
+                                    name="skill5"
+                                    label="Skill 5"
+                                    style={{width: '100%'}}
+                                    
+                                    value={values.skill5}
+                                    onChange={this.props.handleChange} 
+                                    />
+                            </Grid>
+                            <Grid item xs={12} sm={12} md={6} lg={4}>
+                                <TextField margin="dense"
+                                    variant="outlined"
+                                    name="skill6"
+                                    label="Skill 6"
+                                    style={{width: '100%'}}
+                                    
+                                    value={values.skill6}
+                                    onChange={this.props.handleChange} 
+                                    />
+                            </Grid>
+                            
+                            
                         </Grid>
 
 
@@ -123,76 +129,83 @@ class Experience extends Component{
 
                         <Grid container spacing={2} alignItems="center" >
 
-                            <Grid item xs={12} sm={12} md={6} lg={4}>
+                            <Grid item xs={12} sm={12} md={12} lg={12}>
                                 <h4>
                                     <CheckCircleIcon/>
-                                    <span className="pl-3">Experience 2</span>
+                                    <span className="pl-3">Interests</span>
                                 </h4>                                
                             </Grid>
-                            <Grid item sm={false}  lg={8}/>
+                            
 
                             <Grid item xs={12} sm={12} md={6} lg={4}>
                                 <TextField margin="dense"
                                     variant="outlined"
-                                    name="institute2"
-                                    label="Institute/Organization"
+                                    name="interest1"
+                                    label="Interest 1"
                                     style={{width: '100%'}}
-                                    required
-                                    value={values.institute2}
-                                    onChange={this.props.handleChange} 
-                                    InputProps = {{
-                                        endAdornment  : (
-                                            <InputAdornment position="end">
-                                                <BusinessIcon/>
-                                            </InputAdornment>
-                                        )
-                                    }}/>
-                            </Grid>
-                            <Grid item xs={12} sm={12} md={6} lg={4}>
-                                <TextField margin="dense"
-                                    variant="outlined"
-                                    name="position2"
-                                    label="Position"
-                                    style={{width: '100%'}}
-                                    required
-                                    value={values.position2}
-                                    onChange={this.props.handleChange} 
-                                    InputProps = {{
-                                        endAdornment  : (
-                                            <InputAdornment position="end">
-                                                <ComputerIcon/>
-                                            </InputAdornment>
-                                        )
-                                    }}/>
-                            </Grid>
-                            <Grid item xs={12} sm={12} md={6} lg={4}>
-                                <TextField margin="dense"
-                                    variant="outlined"
-                                    name="duration2"
-                                    label="Duration"
-                                    style={{width: '100%'}}
-                                    required
-                                    value={values.duration2}
-                                    onChange={this.props.handleChange} 
-                                    InputProps = {{
-                                        endAdornment  : (
-                                            <InputAdornment position="end">
-                                                <TimelapseIcon/>
-                                            </InputAdornment>
-                                        )
-                                    }}/>
-                            </Grid>
-                            <Grid item xs={12} sm={12} md={12} lg={12}>
-                                <TextField margin="dense"
-                                    variant="outlined"
-                                    name="edescription2"
-                                    label="Description"
-                                    style={{width: '100%'}}
-                                    required
-                                    value={values.edescription2}
+                                    
+                                    value={values.interest1}
                                     onChange={this.props.handleChange} 
                                     />
                             </Grid>
+                            <Grid item xs={12} sm={12} md={6} lg={4}>
+                                <TextField margin="dense"
+                                    variant="outlined"
+                                    name="interest2"
+                                    label="Interest 2"
+                                    style={{width: '100%'}}
+                                    
+                                    value={values.interest2}
+                                    onChange={this.props.handleChange} 
+                                    />
+                            </Grid>                               
+                            <Grid item xs={12} sm={12} md={6} lg={4}>
+                                <TextField margin="dense"
+                                    variant="outlined"
+                                    name="interest3"
+                                    label="Interest 3"
+                                    style={{width: '100%'}}
+                                    
+                                    value={values.interest3}
+                                    onChange={this.props.handleChange} 
+                                    />
+                            </Grid>
+                            <Grid item xs={12} sm={12} md={6} lg={4}>
+                                <TextField margin="dense"
+                                    variant="outlined"
+                                    name="interest4"
+                                    label="Interest 4"
+                                    style={{width: '100%'}}
+                                    
+                                    value={values.interest4}
+                                    onChange={this.props.handleChange} 
+                                    />
+                            </Grid>
+                            <Grid item xs={12} sm={12} md={6} lg={4}>
+                                <TextField margin="dense"
+                                    variant="outlined"
+                                    name="interest5"
+                                    label="Interest 5"
+                                    style={{width: '100%'}}
+                                    
+                                    value={values.interest5}
+                                    onChange={this.props.handleChange} 
+                                    />
+                            </Grid>
+                            <Grid item xs={12} sm={12} md={6} lg={4}>
+                                <TextField margin="dense"
+                                    variant="outlined"
+                                    name="interest6"
+                                    label="Interest 6"
+                                    style={{width: '100%'}}
+                                    
+                                    value={values.interest6}
+                                    onChange={this.props.handleChange} 
+                                    />
+                            </Grid>
+                            
+                            
+              
                         
                             <Grid item xs={12} sm={12} md={6} lg={6}>
                                 <Button
@@ -208,6 +221,7 @@ class Experience extends Component{
                                 <Button
                                         variant="contained"
                                         color="secondary"
+                                        disabled
                                         className={classes.button}
                                         endIcon={<ArrowForwardIosIcon />}
                                     >
@@ -220,7 +234,7 @@ class Experience extends Component{
                         </Grid>
 
                         <Typography component="p" style={{color:'grey'}} className={classes.margin}>
-                            Page 4
+                            Page 5
                         </Typography>
 
                     </div>
@@ -241,4 +255,4 @@ class Experience extends Component{
 
 }
 
-export default withStyles (styles) (Experience);
+export default withStyles (styles) (Extras);
