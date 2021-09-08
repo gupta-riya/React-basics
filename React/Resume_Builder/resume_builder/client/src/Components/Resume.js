@@ -1,6 +1,8 @@
 
 import React,{Component} from 'react'
 import Profile from './Profile'
+import Education from './Education'
+import Project from './Project'
 
 export default class Resume extends Component{
 
@@ -64,7 +66,7 @@ export default class Resume extends Component{
 
             <div className = "App mt-3">
                 <div className = "container col-lg-10 mx-auto text-center">
-                    <Profile 
+                    <Project 
                         nextStep={this.nextStep}
                         handleChange= {this.handleChange}
                         values={values}/>

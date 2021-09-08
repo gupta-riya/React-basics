@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
-import {withStyles} from '@material-ui/core';
-import {TextField, Button, Container} from '@material-ui/core';
+import {withStyles,Typography} from '@material-ui/core';
+import {TextField, Button} from '@material-ui/core';
 import {Card, CardHeader, CardContent} from '@material-ui/core';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
@@ -13,15 +13,17 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import InputAdornment from '@material-ui/core/InputAdornment';
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 
 
 const styles = theme => ({
 
     margin : {
-        margin : theme.spacing.unit*1
+        margin : theme.spacing(1)
     },
     padding : {
-        padding : theme.spacing.unit
+        padding : theme.spacing(1)
     },
     
 });
@@ -60,7 +62,7 @@ class Profile extends Component{
                                 <TextField margin="dense"
                                     variant="outlined"
                                     name="lastname"
-                                    label="Lastt Name"
+                                    label="Last Name"
                                     style={{width: '80%'}}
                                     required
                                     value={values.lastname}
@@ -197,7 +199,33 @@ class Profile extends Component{
                                         )
                                     }}/>
                             </Grid>
+                            <Grid item xs={12} sm={12} md={6} lg={6}>
+                                <Button
+                                    variant="contained"
+                                    disabled
+                                    color="secondary"
+                                    className={classes.button}
+                                    startIcon={<ArrowBackIosIcon />}
+                                >
+                                    Back
+                                </Button>
+                            </Grid>
+                            <Grid item xs={12} sm={12} md={6} lg={6}>
+                                <Button
+                                        variant="contained"
+                                        color="secondary"
+                                        className={classes.button}
+                                        endIcon={<ArrowForwardIosIcon />}
+                                    >
+                                    Next
+                                </Button>
+                            </Grid>
                         </Grid>
+
+                        <Typography  component="p" style={{color:'grey'}} className={classes.margin}>
+                            Page 1
+                        </Typography>
+
                     </div>
                 </CardContent>
             </Paper>
