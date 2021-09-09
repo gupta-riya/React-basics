@@ -213,6 +213,7 @@ class Extras extends Component{
                                     color="secondary"
                                     className={classes.button}
                                     startIcon={<ArrowBackIosIcon />}
+                                    onClick={this.props.prevStep}
                                 >
                                     Back
                                 </Button>

@@ -172,6 +172,7 @@ class Education extends Component{
                                     color="secondary"
                                     className={classes.button}
                                     startIcon={<ArrowBackIosIcon />}
+                                    onClick={this.props.prevStep}
                                 >
                                     Back
                                 </Button>
@@ -182,6 +183,7 @@ class Education extends Component{
                                         color="secondary"
                                         className={classes.button}
                                         endIcon={<ArrowForwardIosIcon />}
+                                        onClick={this.props.nextStep}
                                     >
                                     Next
                                 </Button>
