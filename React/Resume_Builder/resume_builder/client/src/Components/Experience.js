@@ -12,7 +12,8 @@ import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import BusinessIcon from '@material-ui/icons/Business';
 import ComputerIcon from '@material-ui/icons/Computer';
 import TimelapseIcon from '@material-ui/icons/Timelapse';
-
+import axios from 'axios';
+import {saveAs} from 'file-saver';
 
 const styles = theme => ({
 
@@ -28,6 +29,25 @@ const styles = theme => ({
 
 class Experience extends Component{
 
+    createAndDownloadPDF = () => {
+
+        axios
+            .post('/create-pdf',this.props.values)
+            .then(()=>{
+                axios
+                    .get('fetch-pdf',{responseType: 'blob'})
+                    .then(res => {
+                        const pdfBlob = new Blob([res.data],{type: 'application/pdf'});
+                        saveAs(pdfBlob,'My Resume.pdf');
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    });
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    };
 
     render(){
 

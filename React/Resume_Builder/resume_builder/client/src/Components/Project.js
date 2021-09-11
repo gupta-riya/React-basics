@@ -10,7 +10,8 @@ import Grid from '@material-ui/core/Grid';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
-
+import axios from 'axios';
+import {saveAs} from 'file-saver';
 
 
 const styles = theme => ({
@@ -27,6 +28,30 @@ const styles = theme => ({
 
 class Project extends Component{
 
+    createAndDownloadPDF = () => {
+
+        axios
+            .post('/create-pdf',this.state)
+            .then(()=>{
+                axios
+                    .get('fetch-pdf',{responseType: 'blob'})
+                    .then(res => {
+                        const pdfBlob = new Blob([res.data],{type: 'application/pdf'});
+                        saveAs(pdfBlob,'Resume.pdf');
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    });
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    };
+
+
+
+
+
     
     render(){
         
@@ -41,7 +66,7 @@ class Project extends Component{
                 </Card>
                 <CardContent>
                     <div className={classes.margin}>
-                        <Grid container spacing={2} alignItems="center" lg={12}>
+                        <Grid container spacing={2} alignItems="center" >
 
                             <Grid item xs={12} lg={12}>
                                 <h5>Project 1</h5>
@@ -91,7 +116,7 @@ class Project extends Component{
                             <Divider variant="middle"/>
                         <br />
 
-                        <Grid container spacing={2} alignItems="center" lg={12}>
+                        <Grid container spacing={2} alignItems="center" >
                             <Grid item xs={12} lg={12}>
                                 <h5>Project 2</h5>
                             </Grid>
@@ -140,7 +165,7 @@ class Project extends Component{
                             <Divider variant="middle"/>
                         <br />
 
-                        <Grid container spacing={2} alignItems="center" lg={12}>
+                        <Grid container spacing={2} alignItems="center" >
                             <Grid item xs={12} lg={12}>
                                 <h5>Project 3</h5>
                             </Grid>

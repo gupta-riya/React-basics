@@ -38,7 +38,7 @@ class Education extends Component{
                 </Card>
                 <CardContent>
                     <div className={classes.margin}>
-                        <Grid container spacing={2} alignItems="center" lg={12}>
+                        <Grid container spacing={2} alignItems="center" >
 
                             <Grid item xs={12} sm={12} md={6} lg={4}>
                                 <TextField margin="dense"
@@ -104,7 +104,7 @@ class Education extends Component{
                                 <Divider variant="middle"/>
                             <br />
          
-                        <Grid container spacing={2} alignItems="center" lg={12}>
+                        <Grid container spacing={2} alignItems="center" >
                             
                             <Grid item xs={12} sm={12} md={6} lg={4}>
                                 <TextField margin="dense"

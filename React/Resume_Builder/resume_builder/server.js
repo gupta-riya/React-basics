@@ -8,8 +8,8 @@ const app = express();
 const pdfTemplate = require("./document");
 
 const options = {
-    height: "42cm",
-    width: "29.7cm",
+    height: "40cm",
+    width: "29.5cm",
     timeout: "6000"
 };
 

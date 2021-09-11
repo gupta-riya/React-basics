@@ -47,7 +47,7 @@ class Profile extends Component {
                 </Card>
                 <CardContent>
                     <div className={classes.margin}>
-                        <Grid container spacing={2} alignItems="center" lg={12}>
+                        <Grid container spacing={2} alignItems="center" >
                             <Grid item xs={12} sm={12} md={6} lg={6}>
                                 <TextField margin="dense"
                                     variant="outlined"
