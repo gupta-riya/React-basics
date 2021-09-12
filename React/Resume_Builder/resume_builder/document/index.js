@@ -1,10 +1,74 @@
 
 module.exports = (values) => {
 
+
+    const {
+        firstname,
+        lastname,
+        email,
+        phone,
+        github,
+        linkedin,
+        facebook,
+        instagram,
+        twitter,
+        website,
+
+        college,
+        startyear1,
+        endyear1,
+        qualification1,
+        description1,
+        school,
+        startyear2,
+        endyear2,
+        qualification2,
+        description2,
+
+
+        title1,
+        link1,
+        pdescription1,
+        title2,
+        link2,
+        pdescription2,
+        title3,
+        link3,
+        pdescription3,
+
+
+        //experience
+        institute1,
+        position1,
+        duration1,
+        edescription1,
+        institute2,
+        position2,
+        duration2,
+        edescription2,
+
+        //extras
+        skill1,
+        skill2,
+        skill3,
+        skill4,
+        skill5,
+        skill6,
+
+        interest1,
+        interest2,
+        interest3,
+        interest4,
+        interest5,
+        interest6
+    } = values;
+
+
+
     let htmlTemplate = `
     <!DOCTYPE html>
     <head>
-        <title>index</title>
+        <title>${firstname}'s Resume</title>
         
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <style>
@@ -19,6 +83,7 @@ module.exports = (values) => {
                 background-size: cover;
                 font-style: normal;
                 height:100%;
+                padding-left: 15%;
             }
             body, html { height: 100%; }
             
@@ -28,10 +93,11 @@ module.exports = (values) => {
                 padding-right: 6%;
                 color: white;
                 background-color: rgb(135, 138, 138);
+                width: 70%;
             }
             
             .person-name {
-                text-align: center;
+                text-align: right;
                 text-transform: uppercase;
                 font-style: italic;
                 /* font-family: "Courier New, monospace"; */
@@ -42,7 +108,7 @@ module.exports = (values) => {
             #sidebar {
                 position: absolute;
                 top: 20px;
-                left: 2%;
+                left: 17%;
                 /* bottom: 0; */
                 padding-bottom: 4rem;
                 width: 380px;
@@ -54,6 +120,7 @@ module.exports = (values) => {
                 position: absolute;
                 top: 30px;
                 left: 60px;
+                text-transform:uppercase;
             }
             
             .rect-logo {
@@ -69,6 +136,7 @@ module.exports = (values) => {
                 top: 90px;
                 left: 110px;
                 font-style: italic;
+
             }
             
             #main-container {
@@ -115,16 +183,22 @@ module.exports = (values) => {
             .edu-details p,.exp-details p, .pro-details p{
                 font-weight:900;
                 font-size: 1.5rem;
+                text-transform:capitalize;
+
             }
             
             .edu-details h5{
                 color: rgb(166, 168, 168);
                 margin-bottom: 10px;
+                text-transform:capitalize;
+
             }
             
             .edu-details h4{
                 margin-bottom: 10px;
                 font-weight: 600;
+                text-transform:capitalize;
+
             }
             
             
@@ -182,6 +256,8 @@ module.exports = (values) => {
             .extras-info{
                 margin-left: 5%;
                 font-weight: 500;
+                text-transform:capitalize;
+
             }
       
         </style>
@@ -192,7 +268,7 @@ module.exports = (values) => {
     <body>
 
         <div id = "title">
-            <h1 class="person-name">Riya Gupta</h1>
+            <h1 class="person-name">${firstname}${' '}${lastname}</h1>
         </div>
 
         <div id="sidebar">
@@ -200,38 +276,52 @@ module.exports = (values) => {
                 <svg width="250" height="180" >
                     <rect x="50" y="20" rx="20" ry="20" width="150" height="150" class="rect-logo"/>
                 </svg> 
-                <p class="logo-text">RG</p>
+                <p class="logo-text">${firstname[0]}${lastname[0]}</p>
             </div>
 
-            <div class="contact-container">
+            <div class="contact-container">`
+
+            if(email!='' && email!=null)
+                htmlTemplate += `
                 <div class="c-info">
                     <h4>
                         <i class="fas fa-envelope"></i>
-                        <span>reeya@gmail.com</span>
+                        <span>${email}</span>
                     </h4>
                     
-                </div>
+                </div>`;
+
+              if(phone!='' && phone!=null)
+                htmlTemplate += `
                 <div class="c-info">
                     <h4>
                         <i class="fas fa-phone"></i>
-                        <span>09124578999</span>
+                        <span>${phone}</span>
                     </h4>
-                </div>
+                </div>  `              
         
-            </div>
+            htmlTemplate += `</div>
 
             <div class="extras-container">
                 
                 <h2 class="extras-title">SKILLS</h2>
                 <div class="extras-separator"></div>
-                <div class="extras-info">
-                    <h4>Skill 1</h4>
-                    <h4>Skill 2</h4>
-                    <h4>Skill 3</h4>
-                    <h4>Skill 4</h4>
-                    <h4>Skill 5</h4>
-                    <h4>Skill 6</h4>
-                    
+                <div class="extras-info"> `
+
+                if(skill1!='' || skill1!=null)
+                    htmlTemplate+=`<h4>${skill1}</h4>`;
+                if(skill2!='' || skill2!=null)
+                    htmlTemplate+=`<h4>${skill2}</h4>`;
+                if(skill3!='' || skill3!=null)
+                    htmlTemplate+=`<h4>${skill3}</h4>`;
+                if(skill4!='' || skill4!=null)
+                    htmlTemplate+=`<h4>${skill4}</h4>`;
+                if(skill5!='' || skill5!=null)
+                    htmlTemplate+=`<h4>${skill5}</h4>`;
+                if(skill6!='' || skill6!=null)
+                    htmlTemplate+=`<h4>${skill6}</h4>`;              
+                
+            htmlTemplate +=    `   
                 </div>           
 
             </div>
@@ -240,14 +330,22 @@ module.exports = (values) => {
                 
                 <h2 class="extras-title">INTERESTS</h2>
                 <div class="extras-separator"></div>
-                <div class="extras-info">
-                    <h4>Interest 1</h4>
-                    <h4>Interest 2</h4>
-                    <h4>Interest 3</h4>
-                    <h4>Interest 4</h4>
-                    <h4>Interest 5</h4>
-                    <h4>Interest 6</h4>
-                    
+                <div class="extras-info">`;
+
+                if(interest1!='' || interest1!=null)
+                    htmlTemplate+=`<h4>${interest1}</h4>`;
+                if(interest2!='' || interest2!=null)
+                    htmlTemplate+=`<h4>${interest2}</h4>`;
+                if(interest3!='' || interest3!=null)
+                    htmlTemplate+=`<h4>${interest3}</h4>`;
+                if(interest4!='' || interest4!=null)
+                    htmlTemplate+=`<h4>${interest4}</h4>`;
+                if(interest5!='' || interest5!=null)
+                    htmlTemplate+=`<h4>${interest5}</h4>`;
+                if(interest6!='' || interest6!=null)
+                    htmlTemplate+=`<h4>${interest6}</h4>`;
+                   
+            htmlTemplate +=`
                 </div>           
 
             </div>
@@ -262,55 +360,75 @@ module.exports = (values) => {
                 <p class="separator-title">PROFILE</p>
             </div>
 
+            `;
+            if(website!=null && website!='')
+            htmlTemplate+=
+            `
             <div class="social-links">
                 <i class="fas fa-globe"></i>
-                <a href="#">https://riya//about.me</a>
+                <a href="${website}">${website}</a>
             </div>
-
+            `
+            if(github!=null && github!='')
+            htmlTemplate+=
+            `
             <div class="social-links">
                 <i class="fab fa-github"></i>
-                <a href="#">https://riya//about.me</a>
+                <a href="${github}">${github}</a>
             </div>
 
+            `
+            if(facebook!=null && facebook!='')
+            htmlTemplate+=
+            `
             <div class="social-links">
                 <i class="fab fa-facebook"></i>
-                <a href="#">https://riya//about.me</a>
+                <a href="${facebook}">${facebook}</a>
             </div>
-
+            `
+            if(twitter!=null && twitter!='')
+            htmlTemplate+=
+            `
             <div class="social-links">
                 <i class="fab fa-twitter"></i>
-                <a href="#">https://riya//about.me</a>
+                <a href="${twitter}">${twitter}</a>
             </div>
-
+            `
+            if(instagram!=null && instagram!='')
+            htmlTemplate+=
+            `
             <div class="social-links">
                 <i class="fab fa-instagram"></i>
-                <a href="#">https://riya//about.me</a>
+                <a href="${instagram}">${instagram}</a>
             </div>
-
+            `
+            if(linkedin!=null && linkedin!='')
+            htmlTemplate+=
+            `
             <div class="social-links">
                 <i class="fab fa-linkedin"></i>
-                <a href="#">https://riya//about.me</a>
-            </div>
+                <a href="${linkedin}">${linkedin}</a>
+            </div>`
 
-
+            htmlTemplate += `
             <div class= "separator">
                 <p class="separator-title">EDUCATION</p>
             </div>
 
             <div class="edu-details">
-                <p>Vivekanand School</p>
-                <h5><span>2015 </span> to <span>2016</span></h5>
+                <p>${college}</p>
+                <h5><span>${startyear1} </span> to <span>${endyear1}</span></h5>
 
-                <h4>MCA in apllications</h4>
-                <h4>4 years courseand lots of stress</h4>
+                <h4>${qualification1}</h4>
+                <h4>${description1}</h4>
             </div>
 
             <div class="edu-details">
-                <p>Vivekanand School</p>
-                <h5><span>2015 </span> to <span>2016</span></h5>
+                <p>${school}</p>
+                <h5><span>${startyear2} </span> to <span>${endyear2}</span></h5>
 
-                <h4>MCA in apllications</h4>
-                <h4>4 years courseand lots of stress</h4>
+                <h4>${qualification2}</h4>
+                <h4>${description2}</h4>
             </div>
 
 
@@ -319,15 +437,15 @@ module.exports = (values) => {
             </div>
 
             <div class="exp-details">
-                <p>Vivekanand School</p>
-                <h4 class="job-detail"><span>Software Developer </span> &emsp; Duration: <span>2.5 months</span></h4>
-                <h4>MCA in apllications 4 years courseand lots of stress</h4>
+                <p>${institute1}</p>
+                <h4 class="job-detail"><span>${position1} </span> &emsp; Duration: <span>${duration1}</span></h4>
+                <h4>${edescription1}</h4>
             </div>
 
             <div class="exp-details">
-                <p>Vivekanand School</p>
-                <h4 class="job-detail"><span>Software Developer </span> &emsp; Duration: <span>2.5 months</span></h4>
-                <h4>MCA in apllications 4 years courseand lots of stress</h4>
+                <p>${institute2}</p>
+                <h4 class="job-detail"><span>${position2} </span> &emsp; Duration: <span>${duration2}</span></h4>
+                <h4>${edescription2}</h4>
             </div>
 
 
@@ -338,26 +456,38 @@ module.exports = (values) => {
             
 
             <div class="pro-details">
-                <p>Word Flow</p>
+                <p>${title1}</p>
                 <h4 class="pro-link">
                     <i class="fas fa-link"></i>
-                    <a href="#">https://github//riya.in</a>
+                    <a href="${link1}">${link1}</a>
                 </h4>
-                <h4>MCA in apllications 4 years courseand lots of stress</h4>
+                <h4>${pdescription1}</h4>
             </div>
 
             <div class="pro-details">
-                <p>Word Flow</p>
+                <p>${title2}</p>
                 <h4 class="pro-link">
                     <i class="fas fa-link"></i>
-                    <a href="#">https://github//riya.in</a>
+                    <a href="${link2}">${link2}n</a>
                 </h4>
-                <h4>MCA in apllications 4 years courseand lots of stress</h4>
+                <h4>${pdescription2}</h4>
             </div>
 
+            `
+            if(title3!='' && title3!=null)
+            htmlTemplate += `
+                <div class="pro-details">
+                    <p>${title3}</p>
+                    <h4 class="pro-link">
+                        <i class="fas fa-link"></i>
+                        <a href="${link3}">${link3}n</a>
+                    </h4>
+                    <h4>${pdescription3}</h4>
+                </div>
+            `;
 
-
-        </div>
+            htmlTemplate += `
+                </div>
 
 
 

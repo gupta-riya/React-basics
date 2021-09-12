@@ -20,6 +20,8 @@ export default class Resume extends Component {
         linkedin: '',
         facebook: '',
         instagram: '',
+        twitter: '',
+        website: '',
 
         //education
         college: '',
@@ -104,6 +106,8 @@ export default class Resume extends Component {
             linkedin,
             facebook,
             instagram,
+            twitter,
+            website,
 
             college,
             startyear1,
@@ -164,6 +168,8 @@ export default class Resume extends Component {
             linkedin,
             facebook,
             instagram,
+            twitter,
+            website,
             college,
             startyear1,
             endyear1,
